@@ -1,0 +1,63 @@
+html,*{
+	font-family:'Nunito Regular';
+}
+
+.btn{
+	font-family:'Nunito Bold';
+}
+
+/*/////////////////// IS MODAL */
+.modal .modal-dialog{
+	box-shadow:none;
+}
+.modal .modal-content .modal-header{
+	background-color: #ffffff !important;
+	border:0px;
+}
+
+/*/////////////////// IS PAGE TITLE */
+
+.page-title{
+	color: #333333;
+}
+.page-title h2::before{
+	content:"";
+	width: 20px;
+	height: 2px;
+	background-color: #333333;
+	position: relative;
+	display: inline-block;
+	border-radius:50px;
+	margin-bottom:8px;
+	margin-right:5px;
+}
+.page-title h3{
+	border-bottom:2px solid #4A73DA;
+	padding-bottom:5px;
+}
+.page-title-subheading{
+	margin-top:-10px !important;
+	margin-left:-10px !important;
+}
+.page-sub-title{
+	margin-top:-10px !important;
+}
+
+
+@media (max-width: 768px) {
+	.page-title h1{
+		font-size:1.5em !important;
+	}
+	.page-sub-title p{
+		font-size:1em !important;
+	}
+	.display-5{
+		border-bottom:2px solid #4A73DA;
+		padding-bottom:5px;
+		font-size:2em !important;
+	}
+}
+/*/////////////////// FORM */
+.form-group label{
+	font-family:'Nunito Bold';
+}

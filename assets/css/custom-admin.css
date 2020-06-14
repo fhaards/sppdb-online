@@ -1,0 +1,26 @@
+.drop-nav:hover .dropdown-menu{
+    display : block;
+}
+/*
+| -------------------------------------------------------------------------
+| SIDEBAR
+| -------------------------------------------------------------------------
+*/
+.vertical-nav-menu li a{
+    font-size: 14px;
+    font-family:'Nunito SemiBold';
+}
+.metismenu-icon{
+    font-size:14px !important;
+}
+
+/*
+| -------------------------------------------------------------------------
+| OTHER
+| -------------------------------------------------------------------------
+*/
+/*-------------- BERITA CONTENT */
+.berita-content p{
+    text-align: justify;
+}
+

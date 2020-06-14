@@ -1,0 +1,335 @@
+/*
+    Base : #4A73DA;
+*/
+
+* {
+	scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+	width: 0px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: #bdbdbd;
+	border-radius: 20px;
+}
+
+
+/*
+| -------------------------------------------------------------------------
+| NAVBAR
+| -------------------------------------------------------------------------
+*/
+.app-header__logo{
+	background-color: transparent !important;
+}
+.app-header__logo .logo-src{
+	color:#4A73DA;
+}
+.nav-webapp{
+	position: absolute;
+    left: 0;
+	right: 0;
+	margin-top:20px;
+	padding: 4px 0;
+	background: transparent !important;
+	transition:500ms;
+	z-index: 100;
+}
+.nav-webapp.bgWhite{
+	background: #ffffff !important;
+	margin-top:0px;
+	height:50px;
+    transition:500ms;
+}
+.nav-webapp .app-header__logo{
+	margin:0px 0px 0px 40px;
+}
+.nav-webapp .header-menu .nav-item .nav-link{
+	font-family: 'Nunito Bold' !important;
+	font-size:14px;
+	color:#4A73DA !important;
+}
+.nav-webapp .header-menu .nav-item .navbar-link::after{
+	content:"";
+	width:0;
+	height:30px;
+	background-color: #4A73DA;
+	position: absolute;
+	display: block;
+	top: 6;
+	left: 0%;
+	margin-left:0px;
+	z-index:-1;
+}
+
+.nav-webapp .header-menu .nav-item .navbar-link:hover::after{
+	width:100%;
+	height:30px;
+	transition: 0.3s;
+}
+.nav-webapp .header-menu .nav-item .navbar-link.active::after{
+	width:100%;
+	height:30px;
+}
+.nav-webapp .header-menu .nav-item .navbar-link.active{
+	color:#ffffff !important;
+}
+.nav-webapp .header-menu .nav-item .navbar-link:hover{
+	color:#ffffff !important;
+}
+.nav-webapp .header-menu .nav-item i{
+	font-size:12px;
+	color:#616161 !important;
+}
+/*
+| -------------------------------------------------------------------------
+| SIDEBAR
+| -------------------------------------------------------------------------
+*/
+.vertical-nav-menu{
+	margin-top:50px;
+}
+.vertical-nav-menu li{
+	display:block;
+	text-align: left !important;
+	margin-left:0px !important;
+	margin-right:0px !important;
+}
+.vertical-nav-menu li a{
+	font-size:1.5em;
+	padding-left:10px !important;
+	display: block;
+}
+/*
+| -------------------------------------------------------------------------
+| Login Regist
+| -------------------------------------------------------------------------
+*/
+.modal-dialog{
+	max-width: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	height: 100vh;
+	display: flex;
+}
+.modal-content {
+	height: auto;
+	max-height:auto;
+	overflow-y: scroll;
+	min-height: 100%;
+	border-radius: 0;
+}
+
+#login-regist{
+	background-color: #ffffff;
+	position: fixed;
+    z-index: 155;
+    right: 0;
+    top: 0;
+	height: 100vh;
+	max-height: 100vh;
+	overflow-y:scroll;
+	width: 0%;
+    transition: all .2s;
+	box-shadow: -0.46875rem 0 2.1875rem rgba(4,9,20,0.03), 
+				 -0.9375rem 0 1.40625rem rgba(4,9,20,0.03), 
+				 -0.25rem 0 0.53125rem rgba(4,9,20,0.05), 
+				 -0.125rem 0 0.1875rem rgba(4,9,20,0.03);
+				 transition: 0.6s;
+
+}
+#login-regist.active{
+	width: 100%;
+	transition: 0.6s;
+}
+/*
+| -------------------------------------------------------------------------
+| /////////////////////////////// MAIN SECTION ////////////////////////////
+| -------------------------------------------------------------------------
+*/
+.wrapper{
+	margin: 0 auto;
+	position: absolute;
+	top:0;
+}
+
+.section .section-main{
+	margin-top:70px !important;
+}
+
+.section .section-header .page-title::before{
+	content:"";
+	width: 20px;
+	height: 3px;
+	background-color: #4A73DA;
+	position: relative;
+	display: inline-block;
+	border-radius:50px;
+	margin-right:5px;
+}
+
+@media (max-width: 768px) {
+	.section-main .section-header{
+		margin-top:20px;
+	}
+}
+
+
+/*
+| -------------------------------------------------------------------------
+| SECTION 1
+| -------------------------------------------------------------------------
+*/
+
+.section1{
+	background: #1E3F75 url(../images/components/school-bg.svg) no-repeat right fixed;
+	height:100vh;
+}
+.section1 .section-content{
+	margin-top:150px;
+}
+.section1 .jumbotron{
+	background: transparent;
+	background-size: 400px,500px;
+	background-position-y: bottom;
+	background-position-x: left;
+}
+.section1 .jumbotron h2{
+	color:#ffffff;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+.section1 .jumbotron h3{
+	font-family:'Nunito Light';
+	color:#F1F4F6;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+.section1 .jumbotron img{
+	height: 200px;
+	width: 200px;
+}
+@media (max-width: 768px) {
+	.section1{
+		background:#1E3F75;
+	}
+	.section1 .section-content{
+		margin-top:20px;
+	}
+	.section1 .jumbotron{
+		margin-top:100px;
+		padding:0px !important;
+	}
+	.section1 .jumbotron h3{
+		font-family:'Nunito Light';
+		font-size:10px;
+	}
+	.section1 .jumbotron img{
+		height: 150px;
+		width: 150px;
+	}
+}
+/*
+| -------------------------------------------------------------------------
+| SECTION 2
+| -------------------------------------------------------------------------
+*/
+
+.section2{
+	background-color: #F1F4F6;
+}
+
+.section2 .section-prosedur .card-prosedur{
+	box-shadow: none;
+	border-radius:5px;
+}
+#section2.active{
+	z-index: 100 !important;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+	overflow-y: scroll;
+	top:0;
+	transition: all 2s ease 0s;
+}
+.section2 .section-prosedur .card-prosedur .card-body{
+	height:40vh;
+	max-height: 50vh;
+	overflow-y: scroll;
+}
+.section2 .section-prosedur .card-prosedur .card-body.active{
+	height:100vh;
+	max-height: 100vh;
+	overflow-y: scroll;
+	transition: 1s;
+}
+.closeProsedur{
+	position: fixed;
+	right:0;
+	top:0;
+	margin-top:10px;
+	margin-right:10px;
+	z-index:200;
+	display: none;
+}
+.section2 .section-prosedur .card-prosedur .card-body::-webkit-scrollbar {
+	width: 3px;
+}
+.section2 .body-tabs .nav-item .nav-link span{
+	font-family: 'Nunito Bold' !important;
+}
+
+/*
+| -------------------------------------------------------------------------
+| SECTION 3
+| -------------------------------------------------------------------------
+*/
+.section3{
+	background: #F1F4F6 url(../images/components/reading.svg) no-repeat right fixed;
+}
+
+/*
+| -------------------------------------------------------------------------
+| SECTION Footer
+| -------------------------------------------------------------------------
+*/
+
+.section4{
+	background-color: #212121;
+}
+
+.section4 .section-prosedur .card .card-body{
+	height:40vh;
+	max-height: 40vh;
+	overflow-y: scroll;
+}
+
+.section-footer ul li{
+	font-family:'Nunito Light';
+	font-size:15px;
+	color:#e0e0e0;
+}
+.section-footer ul li a{
+	display: block;
+	width: 150px;
+	font-family:'Nunito Light';
+	font-size:15px;
+}
+.section-footer img{
+	width: 35%;
+}
+
+/*
+| -------------------------------------------------------------------------
+| OTHER
+| -------------------------------------------------------------------------
+*/
+

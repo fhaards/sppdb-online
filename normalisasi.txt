@@ -1,0 +1,41 @@
+-data pribadi
+Fakultas , jurusan
+
+KTP
+nisn
+nama_lengkap
+jk
+tempat_lahir
+tgl_lahir
+riwayat_penyakit
+prestasi
+provinsi
+kota 
+alamat
+
+
+-data orangtua
+kd_orangtua *
+no_pendaftaran #
+nm_ayah
+pekerjaan_ayah
+gaji_ayah
+nama_ibu
+pekerjaan_ibu
+gaji_ibu
+
+
+-data pembayaran_daftar
+no_pembayaran *
+no_pendaftaran #
+status
+
+
+-data dokumen
+no_dokumen *
+no_pendaftaran #
+img_ijasah
+img_ktp
+img_skhun
+img_raport_s4
+img_raport_s5

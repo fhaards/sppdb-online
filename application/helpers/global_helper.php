@@ -5,9 +5,9 @@
 		return $ci->session->level=='Admin';	
 	}
 
-	function isInvalidUser(){
+	function isUser(){
 		$ci=& get_instance();
-		return $ci->session->level=='Invalid';	
+		return $ci->session->level=='User';	
 	}
 
 	function show404IfNotAdmin(){

@@ -85,7 +85,7 @@
                         Lengkapi Pendaftaran
                     </a>
                 </li>
-                <?php if(getPesertaData()['status']=='Valid(Unpaid)') :?>
+                <?php if(getPesertaData()['status']=='Valid(Unpaid)' || getPesertaData()['status']=='Valid(Waiting)') :?>
                 <li>
                     <a href="<?= base_url() . 'konfirmasi-pembayaran'; ?>" class="<?= ($hal == 'konfirmasi-pembayaran') ? 'mm-active' : ''; ?>">
                         <i class="metismenu-icon fa fa-file-invoice"></i>

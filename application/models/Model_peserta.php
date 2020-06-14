@@ -22,6 +22,7 @@ class Model_peserta extends CI_Model
             $this->db->from('peserta_pendaftar');
             $this->db->join('peserta_orangtua', 'peserta_orangtua.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
             $this->db->join('peserta_dokumen', 'peserta_dokumen.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
+            $this->db->join('peserta_bayar_daftar', 'peserta_bayar_daftar.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
             $this->db->where('peserta_pendaftar.id_pendaftaran', $idPendaftaran);
             $query2 = $this->db->get();
             return $query2->row_array();
@@ -63,6 +64,14 @@ class Model_peserta extends CI_Model
         $this->db->where('id_pendaftaran', $idPendaftaranDokumen);
         return $this->db->update('peserta_dokumen', $dataDokumen);
     
+    }
+
+    function updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran, $dataUbahStatus){
+        $this->db->where('id_pendaftaran', $idPendaftaran);
+        $this->db->update('peserta_pendaftar', $dataUbahStatus);
+
+        $this->db->where('id_pendaftaran', $idPendaftaran);
+        return $this->db->update('peserta_bayar_daftar', $dataKonfirmasiPembayaran);
     }
 }
 

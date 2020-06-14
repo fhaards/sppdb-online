@@ -106,6 +106,40 @@ class Cntlr_konfirmasi extends CI_Controller
         $data['content'] = '_adminpages/konfirmasi/form_konfirmasi_pembayaran';
         $this->load->view('_adminpages/master-admin', $data);
     }
+
+    public function updateKonfirmasiPembayaran(){
+        $this->form_validation->set_rules('idPendaftaran', 'Bukti Pembayaran', 'required');
+        if ($this->form_validation->run() === FALSE) {
+            $this->session->set_flashdata('failUpload', ' ');
+            redirect(base_url("konfirmasi-pembayaran"));
+        } else {
+            $idPendaftaran = $this->input->post('idPendaftaran');
+            $config['upload_path'] = './uploads/bukti_pembayaran/';
+            $config['allowed_types'] = 'jpg|png';
+            $config['max_size'] = 5024;
+            $config['encrypt_name'] = TRUE;
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload("bukti")) {
+                $imgBukti  = array('upload_data' => $this->upload->data());
+                $getImgBukti = $imgBukti['upload_data']['file_name'];
+            }else{
+                $getImgBukti = $this->input->post('cekImgBukti');
+            }
+
+            $dataKonfirmasiPembayaran = [
+                'img_bukti' => $getImgBukti
+            ];
+
+            $dataUbahStatus = [
+                'status' => 'Valid(Waiting)'
+            ];
+            
+            $this->model_peserta->updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran,$dataUbahStatus);
+            $this->session->set_flashdata('successUpload', ' ');
+            redirect(base_url("konfirmasi-pembayaran"));
+        }
+    }
     public function gantiJurusan()
     {
         $data = $this->model_peserta->changeJurusan();

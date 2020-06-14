@@ -118,6 +118,7 @@ $route['konfirmasi'] = 'Cntlr_konfirmasi';
 $route['konfirmasi/create'] = 'Cntlr_konfirmasi/simpanData';
 $route['konfirmasi/ganti-jurusan'] = 'Cntlr_konfirmasi/gantiJurusan';
 $route['konfirmasi-pembayaran'] = 'Cntlr_konfirmasi/konfirmasiPembayaran';
+$route['konfirmasi-pembayaran/create'] = 'Cntlr_konfirmasi/updateKonfirmasiPembayaran';
 
 
 

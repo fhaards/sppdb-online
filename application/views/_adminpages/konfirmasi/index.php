@@ -71,20 +71,14 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div id="headingFourth" class="card-header">
-                    <button type="button" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseThree" class="text-left m-0 p-0 btn btn-link btn-block">
-                        <h5 class="m-0 p-0">Bukti Pembayaran</h5>
-                    </button>
-                </div>
-                <div data-parent="#accordion" id="collapseOne4" class="collapse">
-                    <div class="card-body">
 
-                    </div>
-                </div>
-            </div>
         </div> <!-- End Accordion -->
-        <button type="submit" class="btn btn-primary"> <i class="fa fa-save mr-2"></i>Konfirmasi </button>
+        <div class="card">
+            <div class="card-body"> 
+            <button type="submit" class="btn btn-primary"> <i class="fa fa-save mr-2"></i>Konfirmasi </button>
+            </div>
+        </div>
+        
         <?php echo form_close(); ?>
     </div>
 </div>

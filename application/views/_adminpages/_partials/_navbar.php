@@ -33,6 +33,29 @@
         </span>
     </div>
     <div class="app-header__content">
+        <div class="app-header-left">
+            <ul class="header-menu nav">
+                <?php if (getPesertaData()['status'] == 'Valid(Waiting)') : ?>
+                    <li class="nav-item">
+                        <span class="" title="Menunggu Konfirmasi Panitia untuk Mendapatkan ruangan ujian">
+                            Status : <strong class="text-info"><?= getPesertaData()['status']; ?></strong>
+                        </span>
+                    </li>
+                <?php elseif(getPesertaData()['status'] == 'Valid(Unpaid)') :?>
+                    <li class="nav-item">
+                        <span class="" title="Silahkan lakukan konfirmasi pembayaran">
+                            Status : <strong class="text-warning"> <?= getPesertaData()['status']; ?> </strong>
+                        </span>
+                    </li>
+                <?php elseif(getPesertaData()['status'] == 'Invalid(Unpaid)') :?>
+                    <li class="nav-item">
+                        <span class="" title="Silahkan lengkapi data pendaftaran">
+                            Status : <strong class="text-danger"> <?= getPesertaData()['status']; ?> </strong>
+                        </span>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
         <div class="app-header-right">
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
@@ -45,8 +68,6 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right">
                                     <h6 tabindex="-1" class="dropdown-header"> <?= getUserData()['nama']; ?></h6>
-                                    Status : <br>
-                                    <?= getUserData()['level']; ?>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="<?= base_url() . 'webapp/logout'; ?>" tabindex="0" class="dropdown-item">
                                         <i class="fa fa-sign-out-alt mr-2"></i>

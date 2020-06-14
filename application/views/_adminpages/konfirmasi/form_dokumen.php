@@ -1,8 +1,8 @@
 <?php
-$getImgIjasah = $getAllDataPeserta['img_ijasah'];
-$getImgSkhun = $getAllDataPeserta['img_skhun'];
-$getImgR4 = $getAllDataPeserta['img_raport_s4'];
-$getImgR5 = $getAllDataPeserta['img_raport_s5'];
+$getImgIjasah = getPesertaData()['img_ijasah'];
+$getImgSkhun = getPesertaData()['img_skhun'];
+$getImgR4 = getPesertaData()['img_raport_s4'];
+$getImgR5 = getPesertaData()['img_raport_s5'];
 ?>
 <div class="row">
     <div class="col-md-6">
@@ -14,20 +14,29 @@ $getImgR5 = $getAllDataPeserta['img_raport_s5'];
     </div>
 </div>
 
-<?php if ($getImgIjasah != '' && $getImgSkhun != '' && $getImgR4 != '' && $getImgR5 != '') : ?>
-    <div class="row mb-3 mt-2">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . $getAllDataPeserta['img_ijasah']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . $getAllDataPeserta['img_skhun']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . $getAllDataPeserta['img_raport_s4']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . $getAllDataPeserta['img_raport_s5']) ?>" height="150px" width="120px">
+
+<div class="row mb-3 mt-2">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group d-flex">
+                    <span>
+                        <label class="label">Maximum Size<br> Type</label>
+                    </span>
+                    <span class="ml-2"> : 5 mb <br> : jpg / png </span>
                 </div>
+                <?php if ($getImgIjasah != '' && $getImgSkhun != '' && $getImgR4 != '' && $getImgR5 != '') : ?>
+                    <hr>
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_ijasah']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_skhun']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_raport_s4']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_raport_s5']) ?>" height="150px" width="120px">
+                <?php endif; ?>
             </div>
         </div>
     </div>
-<?php endif; ?>
+</div>
+
 
 <div class="row">
     <div class="col-md-6">

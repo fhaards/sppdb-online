@@ -45,6 +45,8 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right">
                                     <h6 tabindex="-1" class="dropdown-header"> <?= getUserData()['nama']; ?></h6>
+                                    Status : <br>
+                                    <?= getUserData()['level']; ?>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="<?= base_url() . 'webapp/logout'; ?>" tabindex="0" class="dropdown-item">
                                         <i class="fa fa-sign-out-alt mr-2"></i>
@@ -58,7 +60,7 @@
                                 <?= getUserData()['nama']; ?>
                             </div>
                             <div class="widget-subheading">
-                                <?= getUserData()['level']; ?>
+                                <?= getUserData()['email']; ?>
                             </div>
                         </div>
                     </div>

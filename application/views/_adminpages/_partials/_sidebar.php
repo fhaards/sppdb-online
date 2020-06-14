@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <?php endif; ?>
-                <?php if(isInvalidUser()) : ?>
+                <?php if(isUser()) : ?>
                 <li class="app-sidebar__heading">Pendaftaran</li>
                 <li>
                     <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">

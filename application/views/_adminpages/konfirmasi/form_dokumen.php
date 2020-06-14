@@ -27,10 +27,10 @@ $getImgR5 = getPesertaData()['img_raport_s5'];
                 </div>
                 <?php if ($getImgIjasah != '' && $getImgSkhun != '' && $getImgR4 != '' && $getImgR5 != '') : ?>
                     <hr>
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_ijasah']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_skhun']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_raport_s4']) ?>" height="150px" width="120px">
-                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['img_raport_s5']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/'.getPesertaData()['kd_peserta'].'/'.getPesertaData()['img_ijasah']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/'.getPesertaData()['kd_peserta'].'/'.getPesertaData()['img_skhun']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/'.getPesertaData()['kd_peserta'].'/'.getPesertaData()['img_raport_s4']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/'.getPesertaData()['kd_peserta'].'/'.getPesertaData()['img_raport_s5']) ?>" height="150px" width="120px">
                 <?php endif; ?>
             </div>
         </div>
@@ -45,7 +45,7 @@ $getImgR5 = getPesertaData()['img_raport_s5'];
                 <div class="form-group">
                     <label>Ijasah</label>
                     <div class="custom-file">
-                        <input type="file" name="ijasah" class="custom-file-input" id="customFile">
+                        <input type="file" name="ijasah" class="custom-file-input" id="customFile" >
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ $getImgR5 = getPesertaData()['img_raport_s5'];
                 <div class="form-group">
                     <label>SKHUN</label>
                     <div class="custom-file">
-                        <input type="file" name="skhun" class="custom-file-input" id="customFile">
+                        <input type="file" name="skhun" class="custom-file-input" id="customFile" >
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ $getImgR5 = getPesertaData()['img_raport_s5'];
                 <div class="form-group">
                     <label>Raport Semester 4</label>
                     <div class="custom-file">
-                        <input type="file" name="rsem4" class="custom-file-input" id="customFile">
+                        <input type="file" name="rsem4" class="custom-file-input" id="customFile" >
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ $getImgR5 = getPesertaData()['img_raport_s5'];
                 <div class="form-group">
                     <label>Raport Semester 5</label>
                     <div class="custom-file">
-                        <input type="file" name="rsem5" class="custom-file-input" id="customFile">
+                        <input type="file" name="rsem5" class="custom-file-input" id="customFile" >
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>

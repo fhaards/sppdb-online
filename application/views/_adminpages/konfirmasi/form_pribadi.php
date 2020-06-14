@@ -1,6 +1,6 @@
 <div class="col-md-12 pl-0" id="inputPribadi">
     <?php $this->load->view('_adminpages/konfirmasi/header_user'); ?>
-
+    <!-- aria-required="true" required data-msg-required="Please select any photo" -->
     <div class="form-group row mb-0">
         <label class="col-sm-2">Jurusan yang Dipilih</label>
         <div class="col-sm-10 d-flex">
@@ -13,11 +13,11 @@
             </p>
         </div>
     </div>
+
     <hr>
+
     <div class="row">
         <div class="col-md-6">
-
-
             <div class="form-group">
                 <label>Nisn</label>
                 <input type="text" name="nisn" class="form-control inputKonfirmasi" value="<?= getPesertaDataByUser()['nisn']; ?>" required>
@@ -42,9 +42,31 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
 
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label>Photo</label>
+                    <br>
+                    <div class="img-profile">
+                        <?php if (getPesertaData()['photo'] == '') : ?>
+                            <img width="100px" height="200px" class="" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
+                        <?php else : ?>
+                            <img class="" src="<?= base_url() . 'uploads/dokumen_peserta/' . getPesertaData()['kd_peserta'] . '/' . getPesertaData()['photo']; ?>" alt="">
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>Upload Photo</label>
+                    <input type="hidden" name="cekImgPhoto" value="<?= getPesertaData()['photo']; ?>">
+                    <div class="custom-file">
+                        <input type="file" name="photo" class="custom-file-input" id="customFile" value="">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
             <div class="form-group row">
                 <div class="col-md-6">
                     <label>Tempat Lahir</label>

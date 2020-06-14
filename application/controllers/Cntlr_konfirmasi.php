@@ -9,6 +9,8 @@ class Cntlr_konfirmasi extends CI_Controller
         redirectIfNotLogin();
         $this->load->model('model_jurusan');
         $this->load->model('model_peserta');
+        $this->load->helper('directory');
+        $this->load->helper("file");
     }
 
     public function index()
@@ -25,11 +27,32 @@ class Cntlr_konfirmasi extends CI_Controller
     {
         $this->form_validation->set_rules('kota', 'Kota', 'required');
         $this->form_validation->set_rules('nisn', 'Nisn', 'required');
-        if ($this->form_validation->run() === FALSE) {
-            $this->session->set_flashdata('failConf', '<div class="alert alert-danger"> Gagal Konfirmasi </div>');
-            redirect(base_url("dashboard"));
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('failConf', ' ');
+            redirect(base_url("konfirmasi"));
         } else {
             $idPendaftaran = $this->input->post('idPendaftaran');
+            $kdpeserta = getPesertaData()['kd_peserta'];
+            $uploadPath = './uploads/dokumen_peserta/' . $kdpeserta;
+            $config = array('upload_path' => $uploadPath, 'allowed_types' =>
+            'jpg|jpeg|gif|png', 'max_size' => '5000', 'encrypt_name' => true);
+
+            $this->load->library('upload', $config);
+            if (!is_dir('uploads/dokumen_peserta')) {
+                mkdir($uploadPath, 0777, true);
+            }
+            
+            if (!is_dir('uploads/dokumen_peserta/' . $kdpeserta)) {
+                mkdir($uploadPath . $kdpeserta, 0777, true);
+            }
+
+            if ($this->upload->do_upload("photo")) {
+                unlink($uploadPath.'/'.getPesertaData()['photo']); 
+                $imgPhoto  = array('upload_data' => $this->upload->data());
+                $getImgPhoto = $imgPhoto['upload_data']['file_name'];
+            } else {
+                $getImgPhoto = $this->input->post('cekImgPhoto');
+            }
 
             $data = array(
                 'nisn' => $this->input->post('nisn'),
@@ -40,6 +63,7 @@ class Cntlr_konfirmasi extends CI_Controller
                 'provinsi' => $this->input->post('provinsi'),
                 'kota' => $this->input->post('kota'),
                 'alamat' => $this->input->post('alamat'),
+                'photo' => $getImgPhoto,
                 'status' => 'Valid(Unpaid)'
             );
 
@@ -51,37 +75,36 @@ class Cntlr_konfirmasi extends CI_Controller
                 'gaji_orangtua' => $this->input->post('gaji_orangtua')
             );
 
-            $config['upload_path'] = './uploads/dokumen_peserta/';
-            $config['allowed_types'] = 'jpg|png';
-            $config['max_size'] = 5024;
-            $config['encrypt_name'] = true;
-            $this->load->library('upload', $config);
 
             if ($this->upload->do_upload("ijasah")) {
+                unlink($uploadPath.'/'.getPesertaData()['img_ijasah']);
                 $imgIjasah  = array('upload_data' => $this->upload->data());
                 $getImgIjasah = $imgIjasah['upload_data']['file_name'];
-            }else{
+            } else {
                 $getImgIjasah = $this->input->post('imgIjasahCek');
             }
 
             if ($this->upload->do_upload("skhun")) {
+                unlink($uploadPath.'/'.getPesertaData()['img_skhun']);
                 $imgSkhun  = array('upload_data' => $this->upload->data());
                 $getImgSkhun = $imgSkhun['upload_data']['file_name'];
-            }else{
+            } else {
                 $getImgSkhun = $this->input->post('imgSkhunCek');
             }
 
             if ($this->upload->do_upload("rsem4")) {
+                unlink($uploadPath.'/'.getPesertaData()['img_raport_s4']);
                 $imgrsem4  = array('upload_data' => $this->upload->data());
                 $getImgrsem4 = $imgrsem4['upload_data']['file_name'];
-            }else{
+            } else {
                 $getImgrsem4 = $this->input->post('imgR4Cek');
             }
 
             if ($this->upload->do_upload("rsem5")) {
+                unlink($uploadPath.'/'.getPesertaData()['img_raport_s5']);
                 $imgrsem5  = array('upload_data' => $this->upload->data());
                 $getImgrsem5 = $imgrsem5['upload_data']['file_name'];
-            }else{
+            } else {
                 $getImgrsem5 = $this->input->post('imgR5Cek');
             }
 
@@ -94,11 +117,12 @@ class Cntlr_konfirmasi extends CI_Controller
 
             $this->model_peserta->updateDataPribadi($idPendaftaran, $data, $dataOrtu, $dataDokumen);
             $this->session->set_flashdata('successConf', '<div class="alert alert-success"> Sukses Konfirmasi </div>');
-            redirect(base_url("dashboard"));
+            redirect(base_url("konfirmasi"));
         }
     }
 
-    public function konfirmasiPembayaran(){
+    public function konfirmasiPembayaran()
+    {
         $data['logo'] = $this->model_sekolah->getAll();
         $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
         $data['title'] = 'Konfirmasi Pembayaran';
@@ -107,7 +131,8 @@ class Cntlr_konfirmasi extends CI_Controller
         $this->load->view('_adminpages/master-admin', $data);
     }
 
-    public function updateKonfirmasiPembayaran(){
+    public function updateKonfirmasiPembayaran()
+    {
         $this->form_validation->set_rules('idPendaftaran', 'Bukti Pembayaran', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->session->set_flashdata('failUpload', ' ');
@@ -123,7 +148,7 @@ class Cntlr_konfirmasi extends CI_Controller
             if ($this->upload->do_upload("bukti")) {
                 $imgBukti  = array('upload_data' => $this->upload->data());
                 $getImgBukti = $imgBukti['upload_data']['file_name'];
-            }else{
+            } else {
                 $getImgBukti = $this->input->post('cekImgBukti');
             }
 
@@ -134,8 +159,8 @@ class Cntlr_konfirmasi extends CI_Controller
             $dataUbahStatus = [
                 'status' => 'Valid(Waiting)'
             ];
-            
-            $this->model_peserta->updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran,$dataUbahStatus);
+
+            $this->model_peserta->updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran, $dataUbahStatus);
             $this->session->set_flashdata('successUpload', ' ');
             redirect(base_url("konfirmasi-pembayaran"));
         }

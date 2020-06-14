@@ -61,3 +61,25 @@ html,*{
 .form-group label{
 	font-family:'Nunito Bold';
 }
+
+/*/////////////////// PHOTO */
+.img-profile{
+	max-width: 150px;
+	max-height:200px;
+	width: 150px;
+	height: 200px;
+}
+.img-profile img{
+	height: 100%;
+	width: 150px; 
+	object-fit: cover;
+}
+.img-profile-navbar{
+	width:30px;
+	height: 30px;
+}
+.img-profile-navbar img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}

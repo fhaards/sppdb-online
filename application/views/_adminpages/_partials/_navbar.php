@@ -41,13 +41,13 @@
                             Status : <strong class="text-info"><?= getPesertaData()['status']; ?></strong>
                         </span>
                     </li>
-                <?php elseif(getPesertaData()['status'] == 'Valid(Unpaid)') :?>
+                <?php elseif (getPesertaData()['status'] == 'Valid(Unpaid)') : ?>
                     <li class="nav-item">
                         <span class="" title="Silahkan lakukan konfirmasi pembayaran">
                             Status : <strong class="text-warning"> <?= getPesertaData()['status']; ?> </strong>
                         </span>
                     </li>
-                <?php elseif(getPesertaData()['status'] == 'Invalid(Unpaid)') :?>
+                <?php elseif (getPesertaData()['status'] == 'Invalid(Unpaid)') : ?>
                     <li class="nav-item">
                         <span class="" title="Silahkan lengkapi data pendaftaran">
                             Status : <strong class="text-danger"> <?= getPesertaData()['status']; ?> </strong>
@@ -62,8 +62,16 @@
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
                             <div class="btn-group drop-nav" id="btn-dropdown-nav">
-                                <a data-toggle="dropdown" aria-haspopup="true" id="dropdownMenuButton" aria-expanded="false" class="p-0 btn">
-                                    <img width="30" class="rounded-circle" src="assets/images/user.svg" alt="">
+                                <a data-toggle="dropdown" aria-haspopup="true" id="dropdownMenuButton" aria-expanded="false" class="p-0 d-flex btn">
+                                    <div class="img-profile-navbar">
+                                        <?php if (getPesertaData()['photo'] == '') : ?>
+                                            <img class="rounded-circle" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
+                                        <?php else : ?>
+                                            <?php $photo = getPesertaData()['photo']; ?>
+                                            <?php $kdpeserta = getPesertaData()['kd_peserta']; ?>
+                                            <img src="<?= base_url() . 'uploads/dokumen_peserta/' . $kdpeserta . '/' . $photo; ?>" alt="">
+                                        <?php endif; ?>
+                                    </div>
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right">

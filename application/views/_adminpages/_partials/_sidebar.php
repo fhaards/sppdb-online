@@ -33,7 +33,7 @@
 
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
-           
+
             <?php $hal = $this->uri->segment(1); ?>
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
@@ -43,59 +43,59 @@
                         Homepage
                     </a>
                 </li>
-                <?php if(isAdmin()) : ?>
-                <li class="app-sidebar__heading">Data Sekolah</li>
-                <li>
-                    <a href="<?= base_url() . 'school'; ?>" class="<?= ($hal == 'school') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-school"></i>
-                        Identitas Sekolah
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() . 'jurusan'; ?>" class="<?= ($hal == 'jurusan') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-building"></i>
-                        Jurusan
-                    </a>
-                </li>
-                <li class="app-sidebar__heading">Pendaftaran</li>
-                <li>
-                    <a href="<?= base_url() . 'gelombang'; ?>" class="<?= ($hal == 'gelombang') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-layer-group"></i>
-                        Gelombang
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() . 'info-pendaftaran'; ?>" class="<?= ($hal == 'info-pendaftaran') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-info"></i>
-                        Informasi Pendaftaran
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url() . 'berita'; ?>" class="<?= ($hal == 'berita') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-newspaper"></i>
-                        Berita
-                    </a>
-                </li>
+                <?php if (isAdmin()) : ?>
+                    <li class="app-sidebar__heading">Data Sekolah</li>
+                    <li>
+                        <a href="<?= base_url() . 'school'; ?>" class="<?= ($hal == 'school') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-school"></i>
+                            Identitas Sekolah
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() . 'jurusan'; ?>" class="<?= ($hal == 'jurusan') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-building"></i>
+                            Jurusan
+                        </a>
+                    </li>
+                    <li class="app-sidebar__heading">Pendaftaran</li>
+                    <li>
+                        <a href="<?= base_url() . 'gelombang'; ?>" class="<?= ($hal == 'gelombang') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-layer-group"></i>
+                            Gelombang
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() . 'info-pendaftaran'; ?>" class="<?= ($hal == 'info-pendaftaran') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-info"></i>
+                            Informasi Pendaftaran
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url() . 'berita'; ?>" class="<?= ($hal == 'berita') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-newspaper"></i>
+                            Berita
+                        </a>
+                    </li>
                 <?php endif; ?>
-                <?php if(isUser()) : ?>
-                <li class="app-sidebar__heading">Pendaftaran</li>
-                <li>
-                    <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-pen"></i>
-                        Lengkapi Pendaftaran
-                    </a>
-                </li>
-                <?php if(getPesertaData()['status']=='Valid(Unpaid)' || getPesertaData()['status']=='Valid(Waiting)') :?>
-                <li>
-                    <a href="<?= base_url() . 'konfirmasi-pembayaran'; ?>" class="<?= ($hal == 'konfirmasi-pembayaran') ? 'mm-active' : ''; ?>">
-                        <i class="metismenu-icon fa fa-file-invoice"></i>
-                        Konfirmasi Pembayaran
-                    </a>
-                </li>
-                <?php  endif; ?>
-                <?php  endif; ?>
+                <?php if (isUser()) : ?>
+                    <li class="app-sidebar__heading">Pendaftaran</li>
+                    <li>
+                        <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-pen"></i>
+                            Lengkapi Pendaftaran
+                        </a>
+                    </li>
+                    <?php if (getPesertaData()['status'] == 'Valid(Unpaid)' || getPesertaData()['status'] == 'Valid(Waiting)') : ?>
+                        <li>
+                            <a href="<?= base_url() . 'konfirmasi-pembayaran'; ?>" class="<?= ($hal == 'konfirmasi-pembayaran') ? 'mm-active' : ''; ?>">
+                                <i class="metismenu-icon fa fa-file-invoice"></i>
+                                Konfirmasi Pembayaran
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
             </ul>
-            
+
         </div>
     </div>
 </div>

@@ -14,13 +14,15 @@
         </div>
     </div>
 </div>
-
 <div class="row mb-5">
     <div class="col-md-12">
         <h6>
             Lengkapi Formulir Berikut : <br>
             <small> Data Harus Lengkap. Setelah konfirmasi , jika user masih invalid silahkan kirimkan notif kepada administrator</small>
         </h6>
+    </div>
+    <div class="col-md-12">
+        <?php $this->load->view('_adminpages/_partials/_alert'); ?>
     </div>
     <div class="col-md-12 mt-3">
         <?php echo validation_errors(); ?>
@@ -74,11 +76,11 @@
 
         </div> <!-- End Accordion -->
         <div class="card">
-            <div class="card-body"> 
-            <button type="submit" class="btn btn-primary"> <i class="fa fa-save mr-2"></i>Konfirmasi </button>
+            <div class="card-body">
+                <button type="submit" class="btn btn-primary"> <i class="fa fa-save mr-2"></i>Konfirmasi </button>
             </div>
         </div>
-        
+
         <?php echo form_close(); ?>
     </div>
 </div>

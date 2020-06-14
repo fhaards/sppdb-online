@@ -9,21 +9,8 @@ class Model_peserta extends CI_Model
     {
         $this->load->database();
     }
-
-    function findBy()
-    {
-        $getIdUser = getUserData()['id_user'];
-        $this->db->select('*');
-        $this->db->from('peserta_pendaftar');
-        $this->db->join('gelombang', 'gelombang.id_gel = peserta_pendaftar.id_gel');
-        $this->db->join('jurusan', 'jurusan.id_jurusan = peserta_pendaftar.id_jurusan');
-        $this->db->where('id_user', $getIdUser);
-        $query = $this->db->get();
-        return $query->row_array();
-    }
-
-    function getDataPeserta()
-    {
+    
+    function findBy(){
         $getIdUser = getUserData()['id_user'];
         $this->db->select('id_pendaftaran');
         $this->db->from('peserta_pendaftar');
@@ -39,7 +26,18 @@ class Model_peserta extends CI_Model
             $query2 = $this->db->get();
             return $query2->row_array();
         }
-     
+    }
+
+    function findByUser()
+    {
+        $getIdUser = getUserData()['id_user'];
+        $this->db->select('*');
+        $this->db->from('peserta_pendaftar');
+        $this->db->join('gelombang', 'gelombang.id_gel = peserta_pendaftar.id_gel');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = peserta_pendaftar.id_jurusan');
+        $this->db->where('id_user', $getIdUser);
+        $query = $this->db->get();
+        return $query->row_array();
     }
 
     function changeJurusan()
@@ -64,26 +62,7 @@ class Model_peserta extends CI_Model
 
         $this->db->where('id_pendaftaran', $idPendaftaranDokumen);
         return $this->db->update('peserta_dokumen', $dataDokumen);
-        
-        // if(!empty($dataDokumen)){
-           
-        // }
-        // else{
-        //     $dataDokumen2 = array(
-        //         'img_ijasah' => $this->input->post('imgIjasahCek'),
-        //         'img_skhun' => $this->input->post('imgSkhunCek'),
-        //         'img_raport_s4' => $this->input->post('imgR4Cek'),
-        //         'img_raport_s5' => $this->input->post('imgR5Cek')
-        //     );
-        //     $this->db->where('id_pendaftaran', $idPendaftaranDokumen);
-        //     return $this->db->update('peserta_dokumen', $dataDokumen2);
-        // }
+    
     }
 }
 
-// $this->db->select('kd_orangtua');
-// $this->db->where('id_pendaftaran', $idPendaftaranOrtu);
-// $query2 = $this->db->get('peserta_orangtua');
-// $kdOrtu=$query2->row_array()['kd_orangtua'];
-// var_dump($idPendaftaranOrtu,$kdOrtu);
-// exit;

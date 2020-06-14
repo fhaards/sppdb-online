@@ -117,6 +117,7 @@ $route['berita/update/(:any)'] = 'Cntlr_berita/updateData/$1';
 $route['konfirmasi'] = 'Cntlr_konfirmasi';
 $route['konfirmasi/create'] = 'Cntlr_konfirmasi/simpanData';
 $route['konfirmasi/ganti-jurusan'] = 'Cntlr_konfirmasi/gantiJurusan';
+$route['konfirmasi-pembayaran'] = 'Cntlr_konfirmasi/konfirmasiPembayaran';
 
 
 

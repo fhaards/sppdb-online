@@ -23,7 +23,7 @@ class Model_user extends CI_Model{
 			'nama' => $nama,
 			'email' => $email,
 			'password' => $newPass,
-			'level' => 'Invalid'
+			'level' => 'User'
 		);
 		$query=$this->db->insert('user',$dataUser);
 		$getIdUser=$this->db->insert_id($query);
@@ -54,7 +54,7 @@ class Model_user extends CI_Model{
 				'id_jurusan'=> $jurId,
 				'nm_lengkap' => $nama,
 				'id_gel' => $gelombang,
-				'status' => 'Invalid'
+				'status' => 'Invalid(Unpaid)'
 			);
 			$query3=$this->db->insert('peserta_pendaftar',$dataPendaftar);
 			$getIdPendaftaran=$this->db->insert_id($query3);

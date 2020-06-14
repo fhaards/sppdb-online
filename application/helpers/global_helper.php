@@ -27,6 +27,18 @@
 		$ci=& get_instance();
 		$ci->load->model('model_user');
 		return $ci->model_user->findBy('email',$ci->session->email);
+	}
+	
+	function getPesertaData(){
+		$ci=& get_instance();
+		$ci->load->model('model_peserta');
+		return $ci->model_peserta->findBy();
+	}
+	
+	function getPesertaDataByUser(){
+		$ci=& get_instance();
+		$ci->load->model('model_peserta');
+		return $ci->model_peserta->findByUser();
     }
     
     function runScriptJs($script){

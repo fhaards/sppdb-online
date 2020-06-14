@@ -4,13 +4,13 @@
         <hr>
         <div class="form-group">
             <label>Nama Ayah</label>
-            <input type="text" name="nm_ayah" class="form-control inputKonfirmasiOrtu" value="<?= $getAllDataPeserta['nm_ayah']; ?>" required>
+            <input type="text" name="nm_ayah" class="form-control inputKonfirmasiOrtu" value="<?= getPesertaData()['nm_ayah']; ?>" required>
         </div>
         <div class="form-group">
             <label>Pekerjaan Ayah</label>
             <select name="pekerjaan_ayah" class="form-control">
-                <?php if ($getAllDataPeserta['pekerjaan_ayah'] != ' ') { ?>
-                    <option value="<?= $getAllDataPeserta['pekerjaan_ayah']; ?>" selected><?= $getAllDataPeserta['pekerjaan_ayah']; ?></option>
+                <?php if (getPesertaData()['pekerjaan_ayah'] != ' ') { ?>
+                    <option value="<?= getPesertaData()['pekerjaan_ayah']; ?>" selected><?= getPesertaData()['pekerjaan_ayah']; ?></option>
                 <?php } ?>
                 <option value="Wiraswasta">Wiraswasta</option>
                 <option value="Pegawai Negri">Pegawai Negri</option>
@@ -24,13 +24,13 @@
         <hr>
         <div class="form-group">
             <label>Nama Ibu</label>
-            <input type="text" name="nm_ibu" class="form-control inputKonfirmasiOrtu" value="<?= $getAllDataPeserta['nm_ibu']; ?>" required>
+            <input type="text" name="nm_ibu" class="form-control inputKonfirmasiOrtu" value="<?= getPesertaData()['nm_ibu']; ?>" required>
         </div>
         <div class="form-group">
             <label>Pekerjaan Ibu</label>
             <select name="pekerjaan_ibu" class="form-control">
-                <?php if ($getAllDataPeserta['pekerjaan_ibu'] != ' ') { ?>
-                    <option value="<?= $getAllDataPeserta['pekerjaan_ibu']; ?>" selected><?= $getAllDataPeserta['pekerjaan_ibu']; ?></option>
+                <?php if (getPesertaData()['pekerjaan_ibu'] != ' ') { ?>
+                    <option value="<?= getPesertaData()['pekerjaan_ibu']; ?>" selected><?= getPesertaData()['pekerjaan_ibu']; ?></option>
                 <?php } ?>
                 <option value="Wiraswasta">Wiraswasta</option>
                 <option value="Pegawai Negri">Pegawai Negri</option>
@@ -44,7 +44,7 @@
             <label>Gaji Orangtua</label>
             <select name="gaji_orangtua" class="form-control">
                 <?php if ($getAllDataPeserta['gaji_orangtua'] != ' ') { ?>
-                    <option value="<?= $getAllDataPeserta['gaji_orangtua']; ?>" selected><?= $getAllDataPeserta['gaji_orangtua']; ?></option>
+                    <option value="<?= getPesertaData()['gaji_orangtua']; ?>" selected><?= getPesertaData()['gaji_orangtua']; ?></option>
                 <?php } ?>
                 <option value="1jt - 2jt">1jt - 2jt</option>
                 <option value="2jt - 4jt">2jt - 4jt</option>

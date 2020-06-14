@@ -14,8 +14,6 @@ class Cntlr_konfirmasi extends CI_Controller
     public function index()
     {
         $data['logo'] = $this->model_sekolah->getAll();
-        $data['getDataPeserta'] = $this->model_peserta->findBy();
-        $data['getAllDataPeserta'] = $this->model_peserta->getDataPeserta();
         $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
         $data['title'] = 'Konfirmasi Pendaftaran';
         $data['modal'] = '_adminpages/konfirmasi/modal_konfirmasi';
@@ -41,7 +39,8 @@ class Cntlr_konfirmasi extends CI_Controller
                 'tgl_lahir' => $this->input->post('tglLahir'),
                 'provinsi' => $this->input->post('provinsi'),
                 'kota' => $this->input->post('kota'),
-                'alamat' => $this->input->post('alamat')
+                'alamat' => $this->input->post('alamat'),
+                'status' => 'Valid(Unpaid)'
             );
 
             $dataOrtu = array(
@@ -99,6 +98,14 @@ class Cntlr_konfirmasi extends CI_Controller
         }
     }
 
+    public function konfirmasiPembayaran(){
+        $data['logo'] = $this->model_sekolah->getAll();
+        $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
+        $data['title'] = 'Konfirmasi Pembayaran';
+        $data['modal'] = '_adminpages/konfirmasi/modal_konfirmasi';
+        $data['content'] = '_adminpages/konfirmasi/form_konfirmasi_pembayaran';
+        $this->load->view('_adminpages/master-admin', $data);
+    }
     public function gantiJurusan()
     {
         $data = $this->model_peserta->changeJurusan();

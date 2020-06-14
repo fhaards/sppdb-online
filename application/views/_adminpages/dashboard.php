@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<?php if (isInvalidUser()) : ?>
+<?php if (isUser()) : ?>
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-warning">

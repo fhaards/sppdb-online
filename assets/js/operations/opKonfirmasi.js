@@ -1,13 +1,14 @@
 $(document).ready(function () {
+	getToken();
 	validateField2();
 	validateFieldOrtu();
 	initProvinceAndCity();
 
 	/////////////////////////////// FORM UPLOAD FILE ////////////////////////////////////////////
-	$(".custom-file-input").on("change", function() {
+	$(".custom-file-input").on("change", function () {
 		var fileName = $(this).val().split("\\").pop();
 		$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-	  });
+	});
 	/////////////////////////////// FORM VALIDATION ////////////////////////////////////////////
 
 	$(".inputKonfirmasi").change(function () {
@@ -62,33 +63,46 @@ $(document).ready(function () {
 		}
 	}
 
-
 	/////////////////////////////// CHANGE JURUSAN ////////////////////////////////////////////
 
-        $("#buttonGantiJurusan").on("click", ".gantiJurusan", function () {
-            var jurIdPendafaran = $(this).data("idPendaftaran");
-            $("#changeJurusanPilihModal").modal("show");
-            $("#idPesertaPendaftaran").val(jurIdPendafaran);
-        });
+	$("#buttonGantiJurusan").on("click", ".gantiJurusan", function () {
+		var jurIdPendafaran = $(this).data("idPendaftaran");
+		$("#changeJurusanPilihModal").modal("show");
+		$("#idPesertaPendaftaran").val(jurIdPendafaran);
+	});
 
-        $("#changeJurusanPilihForm").on("submit", function () {
-			var jurIdPendaftaran = $("#idPesertaPendaftaran").val();
-			var idPilihJurusan = $("#idPilihJurusan").val();
-			
-            $.ajax({
-                type: "POST",
-                url: "konfirmasi/ganti-jurusan",
-                dataType: "JSON",
-                data: { id_pendaftaran:jurIdPendaftaran,id_jurusan: idPilihJurusan },
-                success: function (data) {
-					$("#changeJurusanPilihModal").modal("hide");
-					location.reload(true);
-                },
-			});
-			return false;
+	$("#changeJurusanPilihForm").on("submit", function () {
+		var jurIdPendaftaran = $("#idPesertaPendaftaran").val();
+		var idPilihJurusan = $("#idPilihJurusan").val();
+
+		$.ajax({
+			type: "POST",
+			url: "konfirmasi/ganti-jurusan",
+			dataType: "JSON",
+			data: { id_pendaftaran: jurIdPendaftaran, id_jurusan: idPilihJurusan },
+			success: function (data) {
+				$("#changeJurusanPilihModal").modal("hide");
+				location.reload(true);
+			},
 		});
+		return false;
+	});
 
 	/////////////////////////////// GET PROVINCE ////////////////////////////////////////////
+	function getToken(){
+		var tmp = null;
+		$.ajax({
+			'async': false,
+			'type': "get",
+			'global': false,
+			'dataType': 'json',
+			'url': 'https://x.rajaapi.com/poe',
+			'success': function(data) {
+				tmp = data.token;
+			}
+		});
+		return tmp;
+	}
 
 	$("#getProvince").on("change", function () {
 		getCity();
@@ -98,7 +112,8 @@ $(document).ready(function () {
 		$.ajax({
 			type: "GET",
 			// url: "https://dev.farizdotid.com/api/daerahindonesia/provinsi",
-			url: "https://x.rajaapi.com/MeP7c5ne53bUotPwdUSyrel5ubpE2DQOdHIATaKIuUHGLhwV0QQXrjWotN/m/wilayah/provinsi",
+			url:
+				"https://x.rajaapi.com/MeP7c5ne"+getToken()+"/m/wilayah/provinsi",
 			success: function (data) {
 				callback(data);
 			},
@@ -120,7 +135,7 @@ $(document).ready(function () {
 		getProvince.append(options);
 	}
 
-	function initSetProvinceAndCityList(data){
+	function initSetProvinceAndCityList(data) {
 		setProvinceList(data);
 		var idProvince = $("#getProvince").data("idProvince");
 		$("#getProvince").val(idProvince);
@@ -135,7 +150,9 @@ $(document).ready(function () {
 		$.ajax({
 			type: "GET",
 			//url:"https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=" +idProvince,
-			url:"https://x.rajaapi.com/MeP7c5ne53bUotPwdUSyrel5ubpE2DQOdHIATaKIuUHGLhwV0QQXrjWotN/m/wilayah/kabupaten?idpropinsi="+idProvince,
+			url:
+				"https://x.rajaapi.com/MeP7c5ne"+getToken()+"/m/wilayah/kabupaten?idpropinsi=" +
+				idProvince,
 			success: function (data) {
 				callback(data);
 			},
@@ -149,7 +166,7 @@ $(document).ready(function () {
 		getCity(initSetCityList);
 	}
 
-	function setCityList(data){
+	function setCityList(data) {
 		let getCity = $("#getCity");
 		var options = "";
 		var data = data.data;
@@ -160,12 +177,11 @@ $(document).ready(function () {
 		getCity.append(options);
 	}
 
-	function initSetCityList(data){
+	function initSetCityList(data) {
 		setCityList(data);
 		var idCity = $("#getCity").data("idCity");
 		$("#getCity").val(idCity);
 	}
-
 });
 
 // DUMMY

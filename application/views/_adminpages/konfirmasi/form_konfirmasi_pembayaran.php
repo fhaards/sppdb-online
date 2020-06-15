@@ -6,7 +6,7 @@
                     <h2>Konfirmasi Pembayaran</h2>
                 </div>
                 <div class="page-title-subheading">
-                    <strong class="ml-2"><?= $logo['nm_apl']; ?></strong>
+                    <strong class="ml-2"><?= getSchoolData()['nm_apl']; ?></strong>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 </div>
                 <hr>
                 <?php if (getPesertaData()['img_bukti'] != '') : ?>
-                    <img src="<?php echo base_url('uploads/bukti_pembayaran/' . getPesertaData()['img_bukti']) ?>" height="150px" width="120px">
+                    <img src="<?php echo base_url('uploads/dokumen_peserta/' . getPesertaData()['kd_peserta'] . '/bukti_pembayaran'.'/' .getPesertaData()['img_bukti']); ?>" height="150px" width="120px">
                     <hr>
                 <?php endif; ?>
 

@@ -1,8 +1,8 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
         <div class="logo-src mb-2">
-            <img src="<?php echo base_url('assets/images/school/' . $logo['logo']) ?>" height="30px">
-            <strong class="ml-2"><?= $logo['initial_apl']; ?></strong>
+            <img src="<?php echo base_url() . 'assets/images/school/' . getSchoolData()['logo']; ?>" height="30px">
+            <strong class="ml-2"><?= getSchoolData()['initial_apl']; ?></strong>
         </div>
         <div class="header__pane ml-auto">
             <div>
@@ -33,29 +33,33 @@
         </span>
     </div>
     <div class="app-header__content">
-        <div class="app-header-left">
-            <ul class="header-menu nav">
-                <?php if (getPesertaData()['status'] == 'Valid(Waiting)') : ?>
-                    <li class="nav-item">
-                        <span class="" title="Menunggu Konfirmasi Panitia untuk Mendapatkan ruangan ujian">
-                            Status : <strong class="text-info"><?= getPesertaData()['status']; ?></strong>
-                        </span>
-                    </li>
-                <?php elseif (getPesertaData()['status'] == 'Valid(Unpaid)') : ?>
-                    <li class="nav-item">
-                        <span class="" title="Silahkan lakukan konfirmasi pembayaran">
-                            Status : <strong class="text-warning"> <?= getPesertaData()['status']; ?> </strong>
-                        </span>
-                    </li>
-                <?php elseif (getPesertaData()['status'] == 'Invalid(Unpaid)') : ?>
-                    <li class="nav-item">
-                        <span class="" title="Silahkan lengkapi data pendaftaran">
-                            Status : <strong class="text-danger"> <?= getPesertaData()['status']; ?> </strong>
-                        </span>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
+
+        <?php if (isUser()) : ?>
+            <div class="app-header-left">
+                <ul class="header-menu nav">
+                    <?php if (getPesertaData()['status'] == 'Valid(Waiting)') : ?>
+                        <li class="nav-item">
+                            <span class="bg-info text-white pt-1 pb-1 pl-2 pr-2" title="Menunggu Konfirmasi Panitia untuk Mendapatkan ruangan ujian">
+                                User Status : <strong> Valid ( Waiting ) <i class="fa fa-clock"></i></strong>
+                            </span>
+                        </li>
+                    <?php elseif (getPesertaData()['status'] == 'Valid(Unpaid)') : ?>
+                        <li class="nav-item">
+                            <span class="bg-warning text-white pt-1 pb-1 pl-2 pr-2" title="Silahkan lakukan konfirmasi pembayaran"> 
+                                User Status : <strong> Valid </strong>
+                            </span>
+                        </li>
+                    <?php elseif (getPesertaData()['status'] == 'Invalid(Unpaid)') : ?>
+                        <li class="nav-item">
+                            <span class="bg-danger text-white pt-1 pb-1 pl-2 pr-2" title="Silahkan lengkapi data pendaftaran"> 
+                                User Status : <strong> Invalid </strong>
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
         <div class="app-header-right">
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
@@ -64,12 +68,16 @@
                             <div class="btn-group drop-nav" id="btn-dropdown-nav">
                                 <a data-toggle="dropdown" aria-haspopup="true" id="dropdownMenuButton" aria-expanded="false" class="p-0 d-flex btn">
                                     <div class="img-profile-navbar">
-                                        <?php if (getPesertaData()['photo'] == '') : ?>
-                                            <img class="rounded-circle" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
+                                        <?php if (isUser()) : ?>
+                                            <?php if (getPesertaData()['photo'] == '') : ?>
+                                                <img class="rounded-circle" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
+                                            <?php else : ?>
+                                                <?php $photo = getPesertaData()['photo']; ?>
+                                                <?php $kdpeserta = getPesertaData()['kd_peserta']; ?>
+                                                <img src="<?= base_url() . 'uploads/dokumen_peserta/' . $kdpeserta . '/' . $photo; ?>" alt="">
+                                            <?php endif; ?>
                                         <?php else : ?>
-                                            <?php $photo = getPesertaData()['photo']; ?>
-                                            <?php $kdpeserta = getPesertaData()['kd_peserta']; ?>
-                                            <img src="<?= base_url() . 'uploads/dokumen_peserta/' . $kdpeserta . '/' . $photo; ?>" alt="">
+                                            <img class="rounded-circle" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
                                         <?php endif; ?>
                                     </div>
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>

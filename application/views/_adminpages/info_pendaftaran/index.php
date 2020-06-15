@@ -6,14 +6,16 @@
                     <h2>Informasi Pendaftaran</h2>
                 </div>
                 <div class="page-title-subheading">
-                    <strong class="ml-2"><?= $logo['nm_apl'];?></strong>
+                    <strong class="ml-2"><?= getSchoolData()['nm_apl'];?></strong>
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
+        <?php if(isAdmin()) : ?>
             <div id="editButtonsInfo">
                 <div id="editInfoPButton"></div>
             </div>
+        <?php endif;?>
         </div>
     </div>
 </div>
@@ -60,7 +62,7 @@
                     </div>
                 </div>
             </div>
-
+            <?php if(isAdmin()) : ?>
             <div class="card">
                 <div id="headingFourth" class="card-header">
                     <button type="button" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseThree" class="text-left m-0 p-0 btn btn-link btn-block">
@@ -73,6 +75,7 @@
                     </div>
                 </div>
             </div>
+            <?php endif;?>
 
         </div>
     </div>

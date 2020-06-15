@@ -76,7 +76,9 @@ html,*{
 }
 .img-profile-navbar{
 	width:30px;
-	height: 30px;
+	height: 100%;
+	margin:0px !important;
+	padding:0px !important;
 }
 .img-profile-navbar img{
 	height: 100%;

@@ -3,3 +3,8 @@ $("#btn-dropdown-nav").on("click",'.dropdown-toggle',function(){
 });
 
 $('.alert').alert();
+$(".alert-flashdata")
+	.fadeTo(3000, 500)
+	.slideUp(500, function () {
+		$(".alert-flashdata").slideUp(500);
+	});1

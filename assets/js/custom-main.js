@@ -1,45 +1,61 @@
-$('.openProsedur').on('click', function() {
-    $('#section2').addClass('active');
-    $('.section2 .section-prosedur .card-prosedur .card-body').addClass('active');
-    $('#navWebapps').hide();
-    $('.openProsedur').hide();
-    $('.closeProsedur').show();
-});
-$('.closeProsedur').on('click', function() {
-    $('#section2').removeClass('active');
-    $('.section2 .section-prosedur .card-prosedur .card-body').removeClass('active');
-    $('#navWebapps').show();
-    $('.openProsedur').show();
-    $('.closeProsedur').hide();
+$(".openProsedur").on("click", function () {
+	$("#section2").addClass("active");
+	$(".section2 .section-prosedur .card-prosedur .card-body").addClass("active");
+	$("#navWebapps").hide();
+	$(".openProsedur").hide();
+	$(".closeProsedur").show();
 });
 
-$('.navbar-link').on('click', function() {
-    var scrollAnchor = $(this).attr('data-scroll'),
-        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 0;
-    $('body,html').animate({
-        scrollTop: scrollPoint
-    }, 500);
-    return false;
+$(".closeProsedur").on("click", function () {
+	$("#section2").removeClass("active");
+	$(".section2 .section-prosedur .card-prosedur .card-body").removeClass(
+		"active"
+	);
+	$("#navWebapps").show();
+	$(".openProsedur").show();
+	$(".closeProsedur").hide();
 });
 
-$(window).scroll(function() {
-    var windscroll = $(window).scrollTop();
-    if (windscroll >= 128) {
-		$("#navWebapps").addClass("bgWhite fixed header-shadow");
-        $('.wrapper section').each(function(i) {
-            if ($(this).position().top <= windscroll - -50) {
-                $('.navbar-link').removeClass('active');
-                $('.navbar-link').eq(i).addClass('active');
-            }
-        });
-    } else {
-		$("#navWebapps").removeClass("bgWhite header-shadow");
-        $('.navbar-link').removeClass('active');
-        $('.navbar-link:first').addClass('active');
-    }
-}).scroll();
+$(".navbar-link").on("click", function () {
+	var scrollAnchor = $(this).attr("data-scroll"),
+		scrollPoint =
+			$('section[data-anchor="' + scrollAnchor + '"]').offset().top - 0;
+	$("body,html").animate(
+		{
+			scrollTop: scrollPoint,
+		},
+		500
+	);
+	return false;
+});
 
+$(window)
+	.scroll(function () {
+		var windscroll = $(window).scrollTop();
+		if (windscroll >= 128) {
+			$("#navWebapps").addClass("bgWhite fixed header-shadow");
+			$(".wrapper section").each(function (i) {
+				if ($(this).position().top <= windscroll - -50) {
+					$(".navbar-link").removeClass("active");
+					$(".navbar-link").eq(i).addClass("active");
+				}
+			});
+		} else {
+			$("#navWebapps").removeClass("bgWhite header-shadow");
+			$(".navbar-link").removeClass("active");
+			$(".navbar-link:first").addClass("active");
+		}
+	})
+	.scroll();
 
+// $(".alert").alert();
+// window.setTimeout(function() { $(".alert-message").alert('close'); }, 2000);
+
+$(".alert")
+	.fadeTo(3000, 500)
+	.slideUp(500, function () {
+		$(".alert").slideUp(500);
+	});
 
 // $(document).ready(function () {
 // 	var prevScrollpos = window.pageYOffset;
@@ -54,7 +70,6 @@ $(window).scroll(function() {
 // 	};
 // });
 
-
 ///////////////////////// NAV BACKGROUND SHOWING AFTER SCROLL
 
 // $(document).ready(function () {
@@ -62,7 +77,7 @@ $(window).scroll(function() {
 // 	if ($(document).scrollTop() > 150) {
 //       $("#navWebapps").addClass("bgWhite header-shadow");
 //     }
-//     else{ 
+//     else{
 //       $("#navWebapps").removeClass("bgWhite header-shadow");
 //     }
 // 	});
@@ -87,13 +102,3 @@ $(window).scroll(function() {
 // 	})
 // 	$(this).addClass('active');
 //   });
-  
-
-
-
-
-
-
-
-
-

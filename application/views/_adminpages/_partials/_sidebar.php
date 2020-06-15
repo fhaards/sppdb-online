@@ -43,6 +43,7 @@
                         Homepage
                     </a>
                 </li>
+
                 <?php if (isAdmin()) : ?>
                     <li class="app-sidebar__heading">Data Sekolah</li>
                     <li>
@@ -78,6 +79,13 @@
                     </li>
                 <?php endif; ?>
                 <?php if (isUser()) : ?>
+                    
+                    <li>
+                        <a href="<?= base_url() . 'info-pendaftaran'; ?>" class="<?= ($hal == 'info-pendaftaran') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-info"></i>
+                            Informasi Pendaftaran
+                        </a>
+                    </li>
                     <li class="app-sidebar__heading">Pendaftaran</li>
                     <li>
                         <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">
@@ -94,6 +102,7 @@
                         </li>
                     <?php endif; ?>
                 <?php endif; ?>
+
             </ul>
 
         </div>

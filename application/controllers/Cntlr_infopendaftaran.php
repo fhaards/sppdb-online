@@ -8,12 +8,14 @@ class Cntlr_infopendaftaran extends CI_Controller {
 	}
 	public function index()
 	{
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['infoPendaftaran'] = $this->model_infopendaftaran->getAll();
-        $data['title']='Informasi Pendaftaran';
-        $data['modal']='_adminpages/info_pendaftaran/modal_infopendaftaran';
-        $data['content']='_adminpages/info_pendaftaran/index';
-		$this->load->view('_adminpages/master-admin',$data);
+        //$data['infoPendaftaran'] = $this->model_infopendaftaran->getAll();
+        $data = [
+			'modal' => '_adminpages/info_pendaftaran/modal_infopendaftaran',
+			'title' => 'Informasi Pendaftaran',
+            'content' => '_adminpages/info_pendaftaran/index',
+            'infoPendaftaran' => $this->model_infopendaftaran->getAll()
+		];
+		$this->load->view('_adminpages/master-admin',$data);    
     }
     public function tampilData()
     {

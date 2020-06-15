@@ -8,10 +8,11 @@ class Cntlr_dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['logo']= $this->model_sekolah->getAll();
-		$data['modal']='_adminpages/_partials/empty';
-		$data['title']='Welcome';
-		$data['content']='_adminpages/dashboard';
+		$data = [
+			'modal' => '_adminpages/_partials/empty',
+			'title' => 'Welcome',
+			'content' => '_adminpages/dashboard'
+		];
 		$this->load->view('_adminpages/master-admin',$data);
 	}
 }

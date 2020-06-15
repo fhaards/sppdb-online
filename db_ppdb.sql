@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2020 pada 22.06
+-- Waktu pembuatan: 15 Jun 2020 pada 12.36
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -75,15 +75,15 @@ INSERT INTO `jurusan` (`id_jurusan`, `kd_jurusan`, `nm_jurusan`, `status`) VALUE
 CREATE TABLE `peserta_bayar_daftar` (
   `no_pembayaran` int(30) NOT NULL,
   `id_pendaftaran` int(30) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `img_bukti` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `peserta_bayar_daftar`
 --
 
-INSERT INTO `peserta_bayar_daftar` (`no_pembayaran`, `id_pendaftaran`, `status`) VALUES
-(3, 19, '');
+INSERT INTO `peserta_bayar_daftar` (`no_pembayaran`, `id_pendaftaran`, `img_bukti`) VALUES
+(9, 25, 'e753fdc5848c6dc3cac998ea4f8fe08e.JPG');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `peserta_dokumen` (
 --
 
 INSERT INTO `peserta_dokumen` (`no_dokumen`, `id_pendaftaran`, `img_ijasah`, `img_skhun`, `img_raport_s4`, `img_raport_s5`) VALUES
-(3, 19, '1d42a9ecfa411cafd1054b0425e82d9f.jpg', '2e12284249caf8fd2d30e07273e9a7b4.jpg', '823a66604ccb27e6763153cad5e9882c.png', 'bcbe8d3a4b5ca1bad7376e575d1d79d1.png');
+(9, 25, 'dcf3727ab06b0561011151c0226366cf.jpg', 'e53f0d4b33523d5a15872245e261057d.jpg', '710a97c77a44d7bf2ec7c5636eaaa0be.png', '8285f818bc94733909b61253aec19325.png');
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,7 @@ CREATE TABLE `peserta_orangtua` (
 --
 
 INSERT INTO `peserta_orangtua` (`kd_orangtua`, `id_pendaftaran`, `nm_ayah`, `pekerjaan_ayah`, `nm_ibu`, `pekerjaan_ibu`, `gaji_orangtua`) VALUES
-(4, 19, 'Abidin', 'Pegawai Negri', 'Siti Nurhasanah', 'Guru', '> 6jt');
+(10, 25, 'Suyono', 'Pegawai Negri', 'Markinem', 'Guru', '4jt - 6jt');
 
 -- --------------------------------------------------------
 
@@ -151,6 +151,7 @@ CREATE TABLE `peserta_pendaftar` (
   `kota` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `id_gel` int(10) NOT NULL,
+  `photo` text NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -158,8 +159,8 @@ CREATE TABLE `peserta_pendaftar` (
 -- Dumping data untuk tabel `peserta_pendaftar`
 --
 
-INSERT INTO `peserta_pendaftar` (`id_pendaftaran`, `kd_peserta`, `id_user`, `id_jurusan`, `nm_lengkap`, `nisn`, `jk`, `agama`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `alamat`, `id_gel`, `status`) VALUES
-(19, '1585936180', 67, 10, 'Faris Salahuddin', '17114190', 'Laki-Laki', 'Islam', 'JAKARTA', '1994-06-13', '32', '3201', 'Perumahan Bukit Dago A-9 32', 5, 'Invalid');
+INSERT INTO `peserta_pendaftar` (`id_pendaftaran`, `kd_peserta`, `id_user`, `id_jurusan`, `nm_lengkap`, `nisn`, `jk`, `agama`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `alamat`, `id_gel`, `photo`, `status`) VALUES
+(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'Laki-Laki', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', 'Valid(Waiting)');
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 (1, 'Super User', 'thisadmin@mail.com', '$2y$10$C2PPLZLv.g.Tqd2BdI4/ruVpDP/V0o6BDrxkBoL5eNsBrl58kZn3y', 'Admin'),
-(67, 'Faris Salahuddin', 'faris@mail.com', '$2y$10$a8tof1TYmq5sUCq82LVQN.tOqDGQdXzeC1a8cAM6VVafUZm64WlSi', 'Invalid');
+(73, 'Muhammad Fahmi', 'm.fahmi37@mail.com', '$2y$10$1iLv5.hCCI2vSlPeOHV6OePvGXMCEbI0PqGmsmD54mS91BWnsmJ4.', 'User');
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,7 @@ CREATE TABLE `_info` (
 --
 
 INSERT INTO `_info` (`id_info`, `cara_mendaftar`, `dokumen`, `info_pembayaran`, `welcome_msg`) VALUES
-(1, '<p><strong>Berikut tata cara pendaftaran : </strong></p>\n<p>1. Lakukan registrasi pada kolom registrasi <br>2. Login kedalam aplikasi <br>3. Lengkapi formulir pendaftaran <br>4. Lakukan pemabayaran pendaftaran lalu konfirmasi pendaftaran <br>dll...</p>', '<p><strong>Dokumen Persyaratan Umum yang dibutuhkan meliputi: </strong></p>\n<p>1. Fotokopi akta kelahiran <br>2. Fotokopi ijazah <br>3. Fotokopi SHUN <br>4. Fotokopi Kartu Keluarga (KK) <br>5. Fotokopi KTP Orang tua <br>6. Surat Kelakuan Baik <br>7. Surat tanggung jawab mutlak orang tua <br>8. Pas foto siswa ukuran 4x6 sebanyak 3 lembar <br>9. Dokumen khusus sesuai jalur yang ditempuh</p>\n<p><strong>Selain itu, beberapa ketentuan ini juga bisa menjadi perhatian bagi calon peserta didik: </strong></p>\n<p>1. SHUN tidak dipersyaratkan bagi ABK/CPD lulusan sistem pendidikan dari luar negeri. <br>2. Dokumen asli dari dokumen yang difotokopi disertakan untuk verifikasi oleh panitia pendaftaran di satuan pendidikan atau cabang dinas. <br>3. Selanjutnya pendaftar akan menerima Surat Tanda Bukti Pendaftaran (STBP).</p>\n<p><strong>Dokumen persyaratan khusus yang diperlukan meliputi: </strong></p>\n<p><br>1. Surat Keterangan Tidak Mampu (SKTM) dari kelurahan, atau Kartu Keluarga Sejahtera (KKS) atau Kartu Indonesia Pintar (KIP) atau Kartu Indonesia Sehat (KIS) bagi calon peserta didik jalur KETM.</p>\n<p><br>2. Data Hasil Diagnosa/Assesment Psikolog atau Pakar dari pergurua tinggi layanan khusus atau pusat dukungan (Ressource Center) atau kelompok kerja inklusi bagi calon peserta didik berkebutuhan khusus atau penyandang disabilitas.</p>\n<p><br>3. Surat Keterangan dari Pimpinan Tempat Orang Tua Bertugas, sertifikat pendidik, SK pengangkatan pertama, SK pembagian tugas mengajar/membimbing/membina, bagi calon peserta didik jalur Penghargaan Maslahat Guru (PMG).</p>\n<p><br>4. Kartu Keluarga (KK) yang menunjukkan calon peserta didik telah menetap pada tempat domisili sekurang-kurangnya selama 6 bulan, bagi calon peserta didik Warga Penduduk Setempat (WPS).</p>\n<p><br>5. Piagam/Sertifikat yang dilegalisasi pihak kejuaraan, atau piala/medali dengan surat keterangan dari panitia atau pihak berwenang, bagi calon peserta didik Jalur Prestasi.</p>\n<p> </p>', '<p><strong>Informasi Pembayaran</strong></p>\n<p>.................</p>', '<p><strong>Selamat Datang <br>Sistem Penerimaan Peserta Didik Baru<br></strong>SMK Science Technology & Business Depok</p>');
+(1, '<h3>Prosedur Pendaftaran</h3>\n<p>Berikut Prosedur / Tata Cara Pendaftaran : </p>\n<p>1. Lakukan registrasi pada kolom registrasi <br>2. Login kedalam aplikasi <br>3. Lengkapi formulir pendaftaran <br>    - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid</strong><br>4. Lengkapi formulir konfirmasi pembayaran<br>    - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid ( Waiting ) </strong><em><strong><br></strong></em>5. Tunggu beberapa saat , hingga status berbanti menjadi <strong>Valid ( Complete )</strong> <br>6. Setelah status user berganti menjadi <strong>Valid ( Complete )</strong>, <br>    anda akan mendapatkan Kartu Ujian yang berisi : <strong>Tanggal </strong>dan<strong> Ruang Ujian</strong><em><strong><br></strong></em>7. Cetak Kartu Ujian <em><strong><br><br></strong></em><strong>SEMOGA BERHASIL</strong></p>', '<p><strong>Dokumen Persyaratan Umum yang dibutuhkan meliputi: </strong></p>\n<p>1. Fotokopi akta kelahiran <br>2. Fotokopi ijazah <br>3. Fotokopi SHUN <br>4. Fotokopi Kartu Keluarga (KK) <br>5. Fotokopi KTP Orang tua <br>6. Surat Kelakuan Baik <br>7. Surat tanggung jawab mutlak orang tua <br>8. Pas foto siswa ukuran 4x6 sebanyak 3 lembar <br>9. Dokumen khusus sesuai jalur yang ditempuh</p>\n<p><strong>Selain itu, beberapa ketentuan ini juga bisa menjadi perhatian bagi calon peserta didik: </strong></p>\n<p>1. SHUN tidak dipersyaratkan bagi ABK/CPD lulusan sistem pendidikan dari luar negeri. <br>2. Dokumen asli dari dokumen yang difotokopi disertakan untuk verifikasi oleh panitia pendaftaran di satuan pendidikan atau cabang dinas. <br>3. Selanjutnya pendaftar akan menerima Surat Tanda Bukti Pendaftaran (STBP).</p>\n<p><strong>Dokumen persyaratan khusus yang diperlukan meliputi: </strong></p>\n<p><br>1. Surat Keterangan Tidak Mampu (SKTM) dari kelurahan, atau Kartu Keluarga Sejahtera (KKS) atau Kartu Indonesia Pintar (KIP) atau Kartu Indonesia Sehat (KIS) bagi calon peserta didik jalur KETM.</p>\n<p><br>2. Data Hasil Diagnosa/Assesment Psikolog atau Pakar dari pergurua tinggi layanan khusus atau pusat dukungan (Ressource Center) atau kelompok kerja inklusi bagi calon peserta didik berkebutuhan khusus atau penyandang disabilitas.</p>\n<p><br>3. Surat Keterangan dari Pimpinan Tempat Orang Tua Bertugas, sertifikat pendidik, SK pengangkatan pertama, SK pembagian tugas mengajar/membimbing/membina, bagi calon peserta didik jalur Penghargaan Maslahat Guru (PMG).</p>\n<p><br>4. Kartu Keluarga (KK) yang menunjukkan calon peserta didik telah menetap pada tempat domisili sekurang-kurangnya selama 6 bulan, bagi calon peserta didik Warga Penduduk Setempat (WPS).</p>\n<p><br>5. Piagam/Sertifikat yang dilegalisasi pihak kejuaraan, atau piala/medali dengan surat keterangan dari panitia atau pihak berwenang, bagi calon peserta didik Jalur Prestasi.</p>\n<p> </p>', '<p><strong>Informasi Pembayaran</strong></p>\n<p>.................</p>', '<p><strong>Selamat Datang <br>Sistem Penerimaan Peserta Didik Baru<br></strong>SMK Science Technology & Business Depok</p>');
 
 -- --------------------------------------------------------
 
@@ -335,37 +336,37 @@ ALTER TABLE `gelombang`
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id_jurusan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_jurusan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_bayar_daftar`
 --
 ALTER TABLE `peserta_bayar_daftar`
-  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_dokumen`
 --
 ALTER TABLE `peserta_dokumen`
-  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_orangtua`
 --
 ALTER TABLE `peserta_orangtua`
-  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_pendaftar`
 --
 ALTER TABLE `peserta_pendaftar`
-  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT untuk tabel `_berita`

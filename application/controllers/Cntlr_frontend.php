@@ -65,7 +65,7 @@ class Cntlr_frontend extends CI_Controller
 		if ($this->form_validation->run() === FALSE) {
 			$scriptJs = '$(function(){$("#modalLogin").modal("show")});';
 			runScriptJs($scriptJs);
-			$this->session->set_flashdata('failRegist', 'Data berhasil ditambahkan');
+			$this->session->set_flashdata('failRegist', '');
 			redirect(base_url("webapp"));
 		} else {
 			$nama = $this->input->post('nama');

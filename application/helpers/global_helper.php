@@ -39,7 +39,13 @@
 		$ci=& get_instance();
 		$ci->load->model('model_peserta');
 		return $ci->model_peserta->findByUser();
-    }
+	}
+	
+	function getSchoolData(){
+		$ci=& get_instance();
+		$ci->load->model('model_sekolah');
+		return $ci->model_sekolah->getAll();
+	}
     
     function runScriptJs($script){
         $ci=& get_instance();

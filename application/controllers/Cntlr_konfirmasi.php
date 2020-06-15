@@ -15,11 +15,12 @@ class Cntlr_konfirmasi extends CI_Controller
 
     public function index()
     {
-        $data['logo'] = $this->model_sekolah->getAll();
+        $data = [
+            'modal' => '_adminpages/konfirmasi/modal_konfirmasi',
+            'title' => 'Konfirmasi Pendaftaran',
+            'content' => '_adminpages/konfirmasi/index'
+        ];
         $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
-        $data['title'] = 'Konfirmasi Pendaftaran';
-        $data['modal'] = '_adminpages/konfirmasi/modal_konfirmasi';
-        $data['content'] = '_adminpages/konfirmasi/index';
         $this->load->view('_adminpages/master-admin', $data);
     }
 
@@ -38,20 +39,27 @@ class Cntlr_konfirmasi extends CI_Controller
             'jpg|jpeg|gif|png', 'max_size' => '5000', 'encrypt_name' => true);
 
             $this->load->library('upload', $config);
-            if (!is_dir('uploads/dokumen_peserta')) {
-                mkdir($uploadPath, 0777, true);
-            }
-            
+            // if (!is_dir('uploads/dokumen_peserta')) {
+            //     mkdir($uploadPath, 0777, true);
+            // }
+
             if (!is_dir('uploads/dokumen_peserta/' . $kdpeserta)) {
-                mkdir($uploadPath . $kdpeserta, 0777, true);
+                mkdir($uploadPath, 0777, true);
+            } else {
             }
 
             if ($this->upload->do_upload("photo")) {
-                unlink($uploadPath.'/'.getPesertaData()['photo']); 
+                unlink($uploadPath . '/' . getPesertaData()['photo']);
                 $imgPhoto  = array('upload_data' => $this->upload->data());
                 $getImgPhoto = $imgPhoto['upload_data']['file_name'];
             } else {
                 $getImgPhoto = $this->input->post('cekImgPhoto');
+            }
+
+            if (getPesertaData()['status'] == 'Valid(Waiting)') {
+                $setStatus = getPesertaData()['status'];
+            } else {
+                $setStatus = "Valid(Unpaid)";
             }
 
             $data = array(
@@ -64,7 +72,7 @@ class Cntlr_konfirmasi extends CI_Controller
                 'kota' => $this->input->post('kota'),
                 'alamat' => $this->input->post('alamat'),
                 'photo' => $getImgPhoto,
-                'status' => 'Valid(Unpaid)'
+                'status' => $setStatus
             );
 
             $dataOrtu = array(
@@ -75,9 +83,8 @@ class Cntlr_konfirmasi extends CI_Controller
                 'gaji_orangtua' => $this->input->post('gaji_orangtua')
             );
 
-
             if ($this->upload->do_upload("ijasah")) {
-                unlink($uploadPath.'/'.getPesertaData()['img_ijasah']);
+                unlink($uploadPath . '/' . getPesertaData()['img_ijasah']);
                 $imgIjasah  = array('upload_data' => $this->upload->data());
                 $getImgIjasah = $imgIjasah['upload_data']['file_name'];
             } else {
@@ -85,7 +92,7 @@ class Cntlr_konfirmasi extends CI_Controller
             }
 
             if ($this->upload->do_upload("skhun")) {
-                unlink($uploadPath.'/'.getPesertaData()['img_skhun']);
+                unlink($uploadPath . '/' . getPesertaData()['img_skhun']);
                 $imgSkhun  = array('upload_data' => $this->upload->data());
                 $getImgSkhun = $imgSkhun['upload_data']['file_name'];
             } else {
@@ -93,7 +100,7 @@ class Cntlr_konfirmasi extends CI_Controller
             }
 
             if ($this->upload->do_upload("rsem4")) {
-                unlink($uploadPath.'/'.getPesertaData()['img_raport_s4']);
+                unlink($uploadPath . '/' . getPesertaData()['img_raport_s4']);
                 $imgrsem4  = array('upload_data' => $this->upload->data());
                 $getImgrsem4 = $imgrsem4['upload_data']['file_name'];
             } else {
@@ -101,7 +108,7 @@ class Cntlr_konfirmasi extends CI_Controller
             }
 
             if ($this->upload->do_upload("rsem5")) {
-                unlink($uploadPath.'/'.getPesertaData()['img_raport_s5']);
+                unlink($uploadPath . '/' . getPesertaData()['img_raport_s5']);
                 $imgrsem5  = array('upload_data' => $this->upload->data());
                 $getImgrsem5 = $imgrsem5['upload_data']['file_name'];
             } else {
@@ -123,11 +130,13 @@ class Cntlr_konfirmasi extends CI_Controller
 
     public function konfirmasiPembayaran()
     {
-        $data['logo'] = $this->model_sekolah->getAll();
+
         $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
-        $data['title'] = 'Konfirmasi Pembayaran';
-        $data['modal'] = '_adminpages/konfirmasi/modal_konfirmasi';
-        $data['content'] = '_adminpages/konfirmasi/form_konfirmasi_pembayaran';
+        $data = [
+            'modal' => '_adminpages/konfirmasi/modal_konfirmasi',
+            'title' => 'Konfirmasi Pembayaran',
+            'content' => '_adminpages/konfirmasi/form_konfirmasi_pembayaran'
+        ];
         $this->load->view('_adminpages/master-admin', $data);
     }
 
@@ -139,13 +148,20 @@ class Cntlr_konfirmasi extends CI_Controller
             redirect(base_url("konfirmasi-pembayaran"));
         } else {
             $idPendaftaran = $this->input->post('idPendaftaran');
-            $config['upload_path'] = './uploads/bukti_pembayaran/';
-            $config['allowed_types'] = 'jpg|png';
-            $config['max_size'] = 5024;
-            $config['encrypt_name'] = TRUE;
+            $kdpeserta = getPesertaData()['kd_peserta'];
+            $uploadPath = './uploads/dokumen_peserta/' . $kdpeserta . '/bukti_pembayaran';
+            $config = array('upload_path' => $uploadPath, 'allowed_types' =>
+            'jpg|jpeg|gif|png', 'max_size' => '5000', 'encrypt_name' => true);
+
             $this->load->library('upload', $config);
 
+            if (!is_dir('uploads/dokumen_peserta/' . $kdpeserta . '/bukti_pembayaran')) {
+                mkdir($uploadPath, 0777, true);
+            } else {
+            }
+
             if ($this->upload->do_upload("bukti")) {
+                unlink($uploadPath . '/' . getPesertaData()['img_bukti']);
                 $imgBukti  = array('upload_data' => $this->upload->data());
                 $getImgBukti = $imgBukti['upload_data']['file_name'];
             } else {

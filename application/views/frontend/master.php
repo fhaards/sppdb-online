@@ -36,7 +36,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
     </div>
-
     <?php $this->load->view('frontend/partials/modal'); ?>
     <script src="<?php echo base_url() . 'assets/js/main.js'; ?>"></script>
     <script src="<?php echo base_url() . 'vendor/components/jquery/jquery.min.js'; ?>"></script>

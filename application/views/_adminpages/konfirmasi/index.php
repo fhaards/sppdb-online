@@ -6,13 +6,13 @@
                     <h2>Konfirmasi Pendaftaran</h2>
                 </div>
                 <div class="page-title-subheading">
-                    <strong class="ml-2"><?= $logo['nm_apl']; ?></strong>
+                    <strong class="ml-2"><?= getSchoolData()['nm_apl']; ?></strong>
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
         </div>
-    </div>
+    </div>  
 </div>
 <div class="row mb-5">
     <div class="col-md-12">

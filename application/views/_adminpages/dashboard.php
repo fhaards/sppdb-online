@@ -27,15 +27,29 @@
                         <div class="alert alert-danger">
                             Silahkan lengkapi formulir Pendaftaran . <a href="<?= base_url() . "konfirmasi"; ?>"> disini</a>
                         </div>
+                        <?php
+                        $progress = '25';
+                        $style= 'danger';
+                        $width= "style='width:25%'";
+                        ?>
                     <?php elseif (getPesertaData()['status'] == 'Valid(Unpaid)') : ?>
                         <p class="lead mb-4">Anda sudah melengkapi formulir Pendaftaran</p>
                         <div class="alert alert-warning">
                             Silahkan lakukan konfirmasi Pembayaran. <a href="<?= base_url() . "konfirmasi-pembayaran/create"; ?>"> disini</a>
                         </div>
-
+                        <?php
+                        $progress = '50';
+                        $style= 'warning';
+                        $width= "style='width:50%'";
+                        ?>
                     <?php elseif (getPesertaData()['status'] == 'Valid(Waiting)') : ?>
                         <p class="lead mb-4">Anda sudah melengkapi formulir <strong>Pendaftaran & Pembayaran</strong> <br>
                             <small>Silahkan tunggu hingga panitia mengkonfirmasi data , lalu anda akan mendapatkan Kartu Ujian</small> </p>
+                        <?php
+                        $progress = '75';
+                        $style= 'info';
+                        $width= "style='width:75%'";
+                        ?>
                     <?php endif; ?>
 
                     <div class="alert alert-info mt-1">
@@ -49,14 +63,15 @@
                             </div>
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left pr-2 fsize-1">
-                                    <div class="widget-numbers mt-0 fsize-3 text-info">85%</div>
+                                    <div class="widget-numbers mt-0 fsize-3 text-<?= $style; ?>"><?= $progress;?>%</div>
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
+                                        <div class="progress-bar bg-<?= $style; ?>" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" <?php echo $width;?>></div>
                                     </div>
                                 </div>
                             </div>
+                            
 
                         </div>
                     </div>

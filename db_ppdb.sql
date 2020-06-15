@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jun 2020 pada 12.36
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.5
+-- Generation Time: Jun 15, 2020 at 09:19 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gelombang`
+-- Table structure for table `gelombang`
 --
 
 CREATE TABLE `gelombang` (
@@ -37,17 +37,17 @@ CREATE TABLE `gelombang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `gelombang`
+-- Dumping data for table `gelombang`
 --
 
 INSERT INTO `gelombang` (`id_gel`, `nm_gel`, `tgl_mulai`, `tgl_akhir`, `total_peserta`, `status`) VALUES
 (1, 'Gelombang 1', '2020-06-06', '2020-07-09', 0, 'Aktif'),
-(5, 'Gelombang 2', '2020-07-07', '2020-07-23', 1, 'Aktif');
+(5, 'Gelombang 2', '2020-07-07', '2020-07-23', 2, 'Aktif');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jurusan`
+-- Table structure for table `jurusan`
 --
 
 CREATE TABLE `jurusan` (
@@ -58,7 +58,7 @@ CREATE TABLE `jurusan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jurusan`
+-- Dumping data for table `jurusan`
 --
 
 INSERT INTO `jurusan` (`id_jurusan`, `kd_jurusan`, `nm_jurusan`, `status`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `jurusan` (`id_jurusan`, `kd_jurusan`, `nm_jurusan`, `status`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta_bayar_daftar`
+-- Table structure for table `peserta_bayar_daftar`
 --
 
 CREATE TABLE `peserta_bayar_daftar` (
@@ -79,16 +79,17 @@ CREATE TABLE `peserta_bayar_daftar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `peserta_bayar_daftar`
+-- Dumping data for table `peserta_bayar_daftar`
 --
 
 INSERT INTO `peserta_bayar_daftar` (`no_pembayaran`, `id_pendaftaran`, `img_bukti`) VALUES
-(9, 25, 'e753fdc5848c6dc3cac998ea4f8fe08e.JPG');
+(9, 25, 'e753fdc5848c6dc3cac998ea4f8fe08e.JPG'),
+(10, 26, '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta_dokumen`
+-- Table structure for table `peserta_dokumen`
 --
 
 CREATE TABLE `peserta_dokumen` (
@@ -101,16 +102,17 @@ CREATE TABLE `peserta_dokumen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `peserta_dokumen`
+-- Dumping data for table `peserta_dokumen`
 --
 
 INSERT INTO `peserta_dokumen` (`no_dokumen`, `id_pendaftaran`, `img_ijasah`, `img_skhun`, `img_raport_s4`, `img_raport_s5`) VALUES
-(9, 25, 'dcf3727ab06b0561011151c0226366cf.jpg', 'e53f0d4b33523d5a15872245e261057d.jpg', '710a97c77a44d7bf2ec7c5636eaaa0be.png', '8285f818bc94733909b61253aec19325.png');
+(9, 25, 'dcf3727ab06b0561011151c0226366cf.jpg', 'e53f0d4b33523d5a15872245e261057d.jpg', '710a97c77a44d7bf2ec7c5636eaaa0be.png', '8285f818bc94733909b61253aec19325.png'),
+(10, 26, 'd4809e28f32a534db14ca4822afd4f5e.png', '9681859a095776e1b22b5dc1d85aabbf.jpg', 'e4ead6753577a3287224e5d0cc463e65.jpg', 'bbd32363149aecf67b3112d3026505c0.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta_orangtua`
+-- Table structure for table `peserta_orangtua`
 --
 
 CREATE TABLE `peserta_orangtua` (
@@ -124,16 +126,17 @@ CREATE TABLE `peserta_orangtua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `peserta_orangtua`
+-- Dumping data for table `peserta_orangtua`
 --
 
 INSERT INTO `peserta_orangtua` (`kd_orangtua`, `id_pendaftaran`, `nm_ayah`, `pekerjaan_ayah`, `nm_ibu`, `pekerjaan_ibu`, `gaji_orangtua`) VALUES
-(10, 25, 'Suyono', 'Pegawai Negri', 'Markinem', 'Guru', '4jt - 6jt');
+(10, 25, 'Suyono', 'Pegawai Negri', 'Markinem', 'Guru', '4jt - 6jt'),
+(11, 26, 'Budiono', 'Pegawai Negri', 'Surminam', 'Guru', '4jt - 6jt');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `peserta_pendaftar`
+-- Table structure for table `peserta_pendaftar`
 --
 
 CREATE TABLE `peserta_pendaftar` (
@@ -156,16 +159,17 @@ CREATE TABLE `peserta_pendaftar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `peserta_pendaftar`
+-- Dumping data for table `peserta_pendaftar`
 --
 
 INSERT INTO `peserta_pendaftar` (`id_pendaftaran`, `kd_peserta`, `id_user`, `id_jurusan`, `nm_lengkap`, `nisn`, `jk`, `agama`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `alamat`, `id_gel`, `photo`, `status`) VALUES
-(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'Laki-Laki', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', 'Valid(Waiting)');
+(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'Laki-Laki', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', 'Valid(Waiting)'),
+(26, '7129569408', 74, 7, 'Faisal Ramadhan', '888977784', 'Laki-Laki', 'Islam', 'Bogor', '1997-06-04', '32', '3201', 'Nanggewer Raya No. 12', 5, '1003392b51177e36af74a6e0244dc178.jpg', 'Valid(Unpaid)');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -177,17 +181,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 (1, 'Super User', 'thisadmin@mail.com', '$2y$10$C2PPLZLv.g.Tqd2BdI4/ruVpDP/V0o6BDrxkBoL5eNsBrl58kZn3y', 'Admin'),
-(73, 'Muhammad Fahmi', 'm.fahmi37@mail.com', '$2y$10$1iLv5.hCCI2vSlPeOHV6OePvGXMCEbI0PqGmsmD54mS91BWnsmJ4.', 'User');
+(73, 'Muhammad Fahmi', 'm.fahmi37@mail.com', '$2y$10$1iLv5.hCCI2vSlPeOHV6OePvGXMCEbI0PqGmsmD54mS91BWnsmJ4.', 'User'),
+(74, 'Faisal Ramadhan', 'ucul@mail.com', '$2y$10$2fqGvXMVzlDovTuAfEoe5uwVWj6UFubHQa8CUto2SFhBLayrRlzsi', 'User');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `_berita`
+-- Table structure for table `_berita`
 --
 
 CREATE TABLE `_berita` (
@@ -199,7 +204,7 @@ CREATE TABLE `_berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `_berita`
+-- Dumping data for table `_berita`
 --
 
 INSERT INTO `_berita` (`id_berita`, `judul_berita`, `isi_berita`, `tgl_berita`, `status`) VALUES
@@ -211,7 +216,7 @@ INSERT INTO `_berita` (`id_berita`, `judul_berita`, `isi_berita`, `tgl_berita`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `_info`
+-- Table structure for table `_info`
 --
 
 CREATE TABLE `_info` (
@@ -223,7 +228,7 @@ CREATE TABLE `_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `_info`
+-- Dumping data for table `_info`
 --
 
 INSERT INTO `_info` (`id_info`, `cara_mendaftar`, `dokumen`, `info_pembayaran`, `welcome_msg`) VALUES
@@ -232,7 +237,7 @@ INSERT INTO `_info` (`id_info`, `cara_mendaftar`, `dokumen`, `info_pembayaran`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `_sekolah`
+-- Table structure for table `_sekolah`
 --
 
 CREATE TABLE `_sekolah` (
@@ -247,7 +252,7 @@ CREATE TABLE `_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `_sekolah`
+-- Dumping data for table `_sekolah`
 --
 
 INSERT INTO `_sekolah` (`id_sekolah`, `nm_sekolah`, `alamat`, `no_telp`, `email`, `nm_apl`, `initial_apl`, `logo`) VALUES
@@ -258,40 +263,40 @@ INSERT INTO `_sekolah` (`id_sekolah`, `nm_sekolah`, `alamat`, `no_telp`, `email`
 --
 
 --
--- Indeks untuk tabel `gelombang`
+-- Indexes for table `gelombang`
 --
 ALTER TABLE `gelombang`
   ADD PRIMARY KEY (`id_gel`);
 
 --
--- Indeks untuk tabel `jurusan`
+-- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
 
 --
--- Indeks untuk tabel `peserta_bayar_daftar`
+-- Indexes for table `peserta_bayar_daftar`
 --
 ALTER TABLE `peserta_bayar_daftar`
   ADD PRIMARY KEY (`no_pembayaran`),
   ADD KEY `no_pendaftaran` (`id_pendaftaran`);
 
 --
--- Indeks untuk tabel `peserta_dokumen`
+-- Indexes for table `peserta_dokumen`
 --
 ALTER TABLE `peserta_dokumen`
   ADD PRIMARY KEY (`no_dokumen`),
   ADD KEY `no_pendaftaran` (`id_pendaftaran`);
 
 --
--- Indeks untuk tabel `peserta_orangtua`
+-- Indexes for table `peserta_orangtua`
 --
 ALTER TABLE `peserta_orangtua`
   ADD PRIMARY KEY (`kd_orangtua`),
   ADD KEY `no_pendaftaran` (`id_pendaftaran`);
 
 --
--- Indeks untuk tabel `peserta_pendaftar`
+-- Indexes for table `peserta_pendaftar`
 --
 ALTER TABLE `peserta_pendaftar`
   ADD PRIMARY KEY (`id_pendaftaran`),
@@ -299,99 +304,99 @@ ALTER TABLE `peserta_pendaftar`
   ADD KEY `kd_jurusan` (`id_jurusan`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `_berita`
+-- Indexes for table `_berita`
 --
 ALTER TABLE `_berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
--- Indeks untuk tabel `_info`
+-- Indexes for table `_info`
 --
 ALTER TABLE `_info`
   ADD PRIMARY KEY (`id_info`);
 
 --
--- Indeks untuk tabel `_sekolah`
+-- Indexes for table `_sekolah`
 --
 ALTER TABLE `_sekolah`
   ADD PRIMARY KEY (`id_sekolah`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `gelombang`
+-- AUTO_INCREMENT for table `gelombang`
 --
 ALTER TABLE `gelombang`
   MODIFY `id_gel` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `jurusan`
+-- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
   MODIFY `id_jurusan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `peserta_bayar_daftar`
+-- AUTO_INCREMENT for table `peserta_bayar_daftar`
 --
 ALTER TABLE `peserta_bayar_daftar`
-  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `peserta_dokumen`
+-- AUTO_INCREMENT for table `peserta_dokumen`
 --
 ALTER TABLE `peserta_dokumen`
-  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `peserta_orangtua`
+-- AUTO_INCREMENT for table `peserta_orangtua`
 --
 ALTER TABLE `peserta_orangtua`
-  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `peserta_pendaftar`
+-- AUTO_INCREMENT for table `peserta_pendaftar`
 --
 ALTER TABLE `peserta_pendaftar`
-  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT untuk tabel `_berita`
+-- AUTO_INCREMENT for table `_berita`
 --
 ALTER TABLE `_berita`
   MODIFY `id_berita` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `_info`
+-- AUTO_INCREMENT for table `_info`
 --
 ALTER TABLE `_info`
   MODIFY `id_info` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `_sekolah`
+-- AUTO_INCREMENT for table `_sekolah`
 --
 ALTER TABLE `_sekolah`
   MODIFY `id_sekolah` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `peserta_pendaftar`
+-- Constraints for table `peserta_pendaftar`
 --
 ALTER TABLE `peserta_pendaftar`
   ADD CONSTRAINT `peserta_pendaftar_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,

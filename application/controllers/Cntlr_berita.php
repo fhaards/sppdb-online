@@ -9,10 +9,11 @@ class Cntlr_berita extends CI_Controller {
 	}
 	public function index()
 	{
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['title']='Berita';
-        $data['modal']='_adminpages/berita/modal_berita';
-        $data['content']='_adminpages/berita/index';
+        $data = [
+			'modal' => '_adminpages/berita/modal_berita',
+			'title' => 'Berita',
+            'content' => '_adminpages/berita/index'
+		];
 		$this->load->view('_adminpages/master-admin',$data);
     }
     
@@ -30,11 +31,13 @@ class Cntlr_berita extends CI_Controller {
 
     public function showUpdate($id)
     {
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['title']='Berita';
-        $data['modal']='_adminpages/berita/modal_berita';
-        $data['content']='_adminpages/berita/edit';
-        $data['showDetail']=$this->model_berita->detailData($id);
+        $data = [
+			'modal' => '_adminpages/berita/modal_berita',
+			'title' => 'Berita',
+            'content' => '_adminpages/berita/edit',
+            'showDetail' => $this->model_berita->detailData($id)
+		];
+        //$data['showDetail']=$this->model_berita->detailData($id);
         $this->load->view('_adminpages/master-admin',$data);
     }
 
@@ -58,11 +61,12 @@ class Cntlr_berita extends CI_Controller {
 
     public function detailData($id)
 	{
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['title']='Berita';
-        $data['modal']='_adminpages/berita/modal_berita';
-        $data['content']='_adminpages/berita/detail';
-        $data['showDetail']=$this->model_berita->detailData($id);
+        $data = [
+			'modal' => '_adminpages/berita/modal_berita',
+			'title' => 'Berita',
+            'content' => '_adminpages/berita/detail',
+            'showDetail' => $this->model_berita->detailData($id)
+		];
 		$this->load->view('_adminpages/master-admin',$data);
     }
 }

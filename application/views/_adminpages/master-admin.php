@@ -61,6 +61,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="<?php echo base_url() . 'assets/js/operations/opBerita.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/operations/opGelombang.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/operations/opKonfirmasi.js'; ?>"></script>
+    <script src="<?php echo base_url() . 'assets/js/operations/opPeserta.js'; ?>"></script>
+    <script src="<?php echo base_url() . 'assets/js/operations/opRuangUjian.js'; ?>"></script>
 
 </body>
 

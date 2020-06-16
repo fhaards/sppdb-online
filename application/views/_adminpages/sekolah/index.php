@@ -6,7 +6,7 @@
                     <h2>Data Sekolah</h2>
                 </div>
                 <div class="page-title-subheading">
-                    <strong class="ml-2"><?= $logo['nm_apl'];?></strong>
+                    <strong class="ml-2"><?= getSchoolData()['nm_apl'];?></strong>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <div id="editLogoBtn"></div>
             </div>
             <div class="card-body">
-                <img src="<?php echo base_url('assets/images/school/' . $logo['logo']) ?>" width="50%">
+                <img src="<?php echo base_url('assets/images/school/' .getSchoolData()['logo']); ?>" width="50%">
             </div>
         </div>
     </div>

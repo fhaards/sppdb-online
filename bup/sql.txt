@@ -1,0 +1,28 @@
+SELECT ruang_ujian.nm_ruang,ruang_ujian.max,COUNT(DISTINCT peserta_pendaftar.id_ruang) as total 
+FROM `ruang_ujian` 
+INNER JOIN peserta_pendaftar 
+ON peserta_pendaftar.id_ruang = ruang_ujian.id_ruang GROUP BY nm_ruang
+
+SELECT TOP 1 S.nm_ruang,COUNT(a.*) AS jumlah 
+FROM ruang_ujian A 
+inner Join peserta_pendaftar S on S.id_ruang = A.id_ruang 
+GROUP BY S.nm_ruang ORDER BY jumlah DESC
+
+SELECT ruang_ujian.nm_ruang,ruang_ujian.max,COUNT(*) FROM (
+    SELECT COUNT(peserta_pendaftar.id_ruang) AS actCount FROM ruang_ujian
+    INNER JOIN peserta_pendaftar ON peserta_pendaftar.id_ruang = ruang_ujian.id_ruang
+    GROUP BY ruang_ujian.id_ruang
+) total
+
+SELECT ruang_ujian.nm_ruang,ruang_ujian.max,
+( SELECT COUNT(peserta_pendaftar.id_ruang) FROM peserta_pendaftar) as jumlah 
+FROM ruang_ujian
+INNER JOIN peserta_pendaftar ON peserta_pendaftar.id_ruang = ruang_ujian.id_ruang
+
+SELECT ruang_ujian.nm_ruang,ruang_ujian.max, 
+( SELECT COUNT(peserta_pendaftar.id_ruang) FROM peserta_pendaftar) as jumlah FROM ruang_ujian 
+RIGHT JOIN peserta_pendaftar ON peserta_pendaftar.id_ruang = ruang_ujian.id_ruang GROUP BY ruang_ujian.id_ruang
+
+SELECT ruang_ujian.nm_ruang,ruang_ujian.max, COUNT(*) as jumlah 
+FROM ruang_ujian 
+LEFT JOIN peserta_pendaftar ON peserta_pendaftar.id_ruang = ruang_ujian.id_ruang GROUP BY ruang_ujian.id_ruang

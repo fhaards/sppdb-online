@@ -120,6 +120,14 @@ $route['konfirmasi/ganti-jurusan'] = 'Cntlr_konfirmasi/gantiJurusan';
 $route['konfirmasi-pembayaran'] = 'Cntlr_konfirmasi/konfirmasiPembayaran';
 $route['konfirmasi-pembayaran/create'] = 'Cntlr_konfirmasi/updateKonfirmasiPembayaran';
 
+//---------------------  RUANG UJIAN
+$route['ruang-ujian'] = 'Cntlr_ruangujian';
+$route['ruang-ujian/list'] = 'Cntlr_ruangujian/tampilData';
+$route['ruang-ujian/create'] = 'Cntlr_ruangujian/simpanData';
+$route['ruang-ujian/update'] = 'Cntlr_ruangujian/updateData';
+$route['ruang-ujian/delete'] = 'Cntlr_ruangujian/hapusData';
 
+//---------------------  PESERTA
+$route['list-peserta'] = 'Cntlr_peserta';
 
 $route['foo'] = 'Cntlr_foo/index';

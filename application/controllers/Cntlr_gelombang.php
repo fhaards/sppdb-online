@@ -9,10 +9,11 @@ class Cntlr_gelombang extends CI_Controller {
 	}
 	public function index()
 	{
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['title']='Gelombang';
-        $data['modal']='_adminpages/gelombang/modal_gelombang';
-        $data['content']='_adminpages/gelombang/index';
+        $data = [
+			'modal' => '_adminpages/gelombang/modal_gelombang',
+			'title' => 'Gelombang',
+            'content' => '_adminpages/gelombang/index'
+		];
 		$this->load->view('_adminpages/master-admin',$data);
     }
     

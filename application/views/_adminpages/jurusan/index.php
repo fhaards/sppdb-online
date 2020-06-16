@@ -6,7 +6,7 @@
                     <h2>Jurusan</h2>
                 </div>
                 <div class="page-title-subheading">
-                    <strong class="ml-2"><?= $logo['nm_apl'];?></strong>
+                    <strong class="ml-2"><?= getSchoolData()['nm_apl'];?></strong>
                 </div>
             </div>
         </div>

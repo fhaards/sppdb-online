@@ -66,6 +66,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<?= base_url() . 'ruang-ujian'; ?>" class="<?= ($hal == 'ruang-ujian') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-chalkboard"></i>
+                            Ruang Ujian
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?= base_url() . 'info-pendaftaran'; ?>" class="<?= ($hal == 'info-pendaftaran') ? 'mm-active' : ''; ?>">
                             <i class="metismenu-icon fa fa-info"></i>
                             Informasi Pendaftaran
@@ -77,9 +83,16 @@
                             Berita
                         </a>
                     </li>
+                    <li class="app-sidebar__heading">Peserta</li>
+                    <li>
+                        <a href="<?= base_url() . 'list-peserta'; ?>" class="<?= ($hal == 'list-peserta') ? 'mm-active' : ''; ?>">
+                            <i class="metismenu-icon fa fa-users"></i>
+                            List Peserta
+                        </a>
+                    </li>
                 <?php endif; ?>
                 <?php if (isUser()) : ?>
-                    
+
                     <li>
                         <a href="<?= base_url() . 'info-pendaftaran'; ?>" class="<?= ($hal == 'info-pendaftaran') ? 'mm-active' : ''; ?>">
                             <i class="metismenu-icon fa fa-info"></i>

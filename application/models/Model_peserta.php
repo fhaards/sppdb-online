@@ -3,13 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_peserta extends CI_Model
 {
-    protected $table = 'user';
 
     public function __construct()
     {
         $this->load->database();
     }
-    
+    function getAll(){
+        $this->db->select('*');
+        $this->db->from('peserta_pendaftar');
+        return $this->db->get()->result_array();
+    }
+
     function findBy(){
         $getIdUser = getUserData()['id_user'];
         $this->db->select('id_pendaftaran');

@@ -1,4 +1,4 @@
-<!-- MODAL INPUT JURUSAN -->
+<!-- MODAL INPUT GELOMBANG -->
 <form id="inputFormGelombang" method="post">
     <div class="modal fade" id="inputGelombangModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -44,7 +44,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete Jurusan</h5>
+                <h5 class="modal-title" id="deleteModalLabel">Delete Gelombang</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,7 +76,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="idGelombangEdit" name="id_gel">
+                    <input type="hidden" id="idGelombangEdit" name="id_gel">
                     <div class="page-title mt-0 mb-3">
                         <h3>Input Gelombang</h3>
                     </div>

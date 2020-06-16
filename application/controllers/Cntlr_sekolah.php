@@ -5,15 +5,16 @@ class Cntlr_sekolah extends CI_Controller {
 	function __construct(){
 		parent::__construct();
         redirectIfNotLogin();
-        
     }
     
 	public function index()
 	{
-        $data['logo']= $this->model_sekolah->getAll();
-        $data['title']='Data Sekolah';
-        $data['modal']='_adminpages/sekolah/modal_sekolah';
-        $data['content']='_adminpages/sekolah/index';
+        //$data['logo']= $this->model_sekolah->getAll();
+        $data = [
+			'modal' => '_adminpages/sekolah/modal_sekolah',
+			'title' => 'Data Sekolah',
+            'content' => '_adminpages/sekolah/index'
+		];
 		$this->load->view('_adminpages/master-admin',$data);
     }
     

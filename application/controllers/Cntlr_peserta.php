@@ -18,25 +18,30 @@ class Cntlr_peserta extends CI_Controller {
     }
     public function tampilData()
     {
-        $data = $this->modal_peserta->getAll();
+        $data = $this->model_peserta->getPartially();
         echo json_encode($data);
     }
 
     public function simpanData()
     {
-        $data = $this->modal_peserta->inputData();
+        $data = $this->model_peserta->inputData();
         echo json_encode($data);
     }
 
     public function updateData()
     {
-        $data = $this->modal_peserta->updateData();
+        $data = $this->model_peserta->updateData();
         echo json_encode($data);
     }
 
     public function hapusData()
     {
-        $data = $this->modal_peserta->hapusData();
+        $data = $this->model_peserta->hapusData();
+        echo json_encode($data);
+    }
+    public function changeStatus()
+    {
+        $data = $this->model_peserta->changeStatus();
         echo json_encode($data);
     }
 }

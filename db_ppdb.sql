@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2020 pada 23.53
+-- Waktu pembuatan: 17 Jun 2020 pada 22.24
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -42,7 +42,7 @@ CREATE TABLE `gelombang` (
 
 INSERT INTO `gelombang` (`id_gel`, `nm_gel`, `tgl_mulai`, `tgl_akhir`, `total_peserta`, `status`) VALUES
 (1, 'Gelombang 1', '2020-06-06', '2020-07-09', 0, 'Aktif'),
-(5, 'Gelombang 2', '2020-07-07', '2020-07-23', 2, 'Aktif');
+(5, 'Gelombang 2', '2020-07-07', '2020-07-23', 3, 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,8 @@ CREATE TABLE `peserta_bayar_daftar` (
 
 INSERT INTO `peserta_bayar_daftar` (`no_pembayaran`, `id_pendaftaran`, `img_bukti`) VALUES
 (9, 25, 'e753fdc5848c6dc3cac998ea4f8fe08e.JPG'),
-(10, 26, '');
+(10, 26, ''),
+(11, 27, '0b7ef8e41642efe32d59aac39a4ed385.jpg');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,8 @@ CREATE TABLE `peserta_dokumen` (
 
 INSERT INTO `peserta_dokumen` (`no_dokumen`, `id_pendaftaran`, `img_ijasah`, `img_skhun`, `img_raport_s4`, `img_raport_s5`) VALUES
 (9, 25, 'dcf3727ab06b0561011151c0226366cf.jpg', 'e53f0d4b33523d5a15872245e261057d.jpg', '710a97c77a44d7bf2ec7c5636eaaa0be.png', '8285f818bc94733909b61253aec19325.png'),
-(10, 26, '', '', '', '');
+(10, 26, '', '', '', ''),
+(11, 27, 'e6c9801d15f7c3fdeca431d51403ed92.jpg', '6d0aed14a37a68e8981a8bbd33f975d2.jpg', '2772fddadbd4aadafe0ed95674b8a21f.png', '837e630ec53e9fac65f35b8a3925cb07.png');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,8 @@ CREATE TABLE `peserta_orangtua` (
 
 INSERT INTO `peserta_orangtua` (`kd_orangtua`, `id_pendaftaran`, `nm_ayah`, `pekerjaan_ayah`, `nm_ibu`, `pekerjaan_ibu`, `gaji_orangtua`) VALUES
 (10, 25, 'Suyono', 'Pegawai Negri', 'Markinem', 'Guru', '4jt - 6jt'),
-(11, 26, '', '', '', '', '');
+(11, 26, '', '', '', '', ''),
+(12, 27, 'Abidin', 'Wiraswasta', 'Siti Nurhasanah', 'Wiraswasta', '4jt - 6jt');
 
 -- --------------------------------------------------------
 
@@ -165,8 +168,9 @@ CREATE TABLE `peserta_pendaftar` (
 --
 
 INSERT INTO `peserta_pendaftar` (`id_pendaftaran`, `kd_peserta`, `id_user`, `id_jurusan`, `nm_lengkap`, `nisn`, `jk`, `agama`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `alamat`, `id_gel`, `photo`, `tgl_daftar`, `id_ruang`, `status`) VALUES
-(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'Laki-Laki', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', '0000-00-00', 1, 'Valid(Waiting)'),
-(26, '3878697645', 74, 7, 'Faris Salahud', '', '', '', '', '0000-00-00', '', '', '', 5, '', '0000-00-00', 2, 'Invalid(Unpaid)');
+(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'L', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', '2020-06-17', 1, 'Valid(Complete)'),
+(26, '3878697645', 74, 7, 'Faris Salahud', '', '', '', '', '0000-00-00', '', '', '', 5, '', '2020-06-18', 2, 'Invalid(Unpaid)'),
+(27, '5237525468', 75, 7, 'Amira Istiqomah', '15516132', 'L', 'Islam', 'Jakarta', '2000-06-17', '32', '3201', 'Bukit Dago A-9 No.32', 5, 'b9b9d12783fc2e1d7e740d43ad7eeabd.JPG', '0000-00-00', 0, 'Valid(Waiting)');
 
 -- --------------------------------------------------------
 
@@ -209,7 +213,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 (1, 'Super User', 'thisadmin@mail.com', '$2y$10$C2PPLZLv.g.Tqd2BdI4/ruVpDP/V0o6BDrxkBoL5eNsBrl58kZn3y', 'Admin'),
 (73, 'Muhammad Fahmi', 'm.fahmi37@mail.com', '$2y$10$1iLv5.hCCI2vSlPeOHV6OePvGXMCEbI0PqGmsmD54mS91BWnsmJ4.', 'User'),
-(74, 'Faris Salahud', 'faris@mail.com', '$2y$10$sJ61hG9wFWN0VdZ0PbjIeeIqbMxnyzYA74ezv5gMqAmjHPdM5LnnK', 'User');
+(74, 'Faris Salahud', 'faris@mail.com', '$2y$10$sJ61hG9wFWN0VdZ0PbjIeeIqbMxnyzYA74ezv5gMqAmjHPdM5LnnK', 'User'),
+(75, 'Amira Istiqomah', 'amira@mail.com', '$2y$10$8ng4dxpRr/FrQGYnDtj4CeFLkt.6IPj/G1RV4JvmlHDRzNVViAwcm', 'User');
 
 -- --------------------------------------------------------
 
@@ -375,25 +380,25 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT untuk tabel `peserta_bayar_daftar`
 --
 ALTER TABLE `peserta_bayar_daftar`
-  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `no_pembayaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_dokumen`
 --
 ALTER TABLE `peserta_dokumen`
-  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `no_dokumen` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_orangtua`
 --
 ALTER TABLE `peserta_orangtua`
-  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `kd_orangtua` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta_pendaftar`
 --
 ALTER TABLE `peserta_pendaftar`
-  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_pendaftaran` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `ruang_ujian`
@@ -405,7 +410,7 @@ ALTER TABLE `ruang_ujian`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `_berita`

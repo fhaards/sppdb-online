@@ -27,8 +27,8 @@
                 <div class="col-md-6">
                     <label>Jenis Kelamin</label>
                     <select name="jenisK" class="form-control" required>
-                        <option value="Laki-Laki">Laki-Laki</option>
-                        <option value="Perempuan">Perempuan</option>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
                     </select>
                 </div>
                 <div class="col-md-6">

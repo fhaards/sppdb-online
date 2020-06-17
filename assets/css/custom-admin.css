@@ -1,17 +1,17 @@
-.drop-nav:hover .dropdown-menu{
-    display : block;
+.drop-nav:hover .dropdown-menu {
+	display: block;
 }
 /*
 | -------------------------------------------------------------------------
 | SIDEBAR
 | -------------------------------------------------------------------------
 */
-.vertical-nav-menu li a{
-    font-size: 14px;
-    font-family:'Nunito SemiBold';
+.vertical-nav-menu li a {
+	font-size: 14px;
+	font-family: "Nunito SemiBold";
 }
-.metismenu-icon{
-    font-size:14px !important;
+.metismenu-icon {
+	font-size: 14px !important;
 }
 
 /*
@@ -19,11 +19,30 @@
 | OTHER
 | -------------------------------------------------------------------------
 */
-.btn-sm{
-    font-size:10px !important;
+.btn-sm {
+	font-size: 10px !important;
 }
 /*-------------- BERITA CONTENT */
-.berita-content p{
-    text-align: justify;
+.berita-content p {
+	text-align: justify;
 }
+/* .table tr td {
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+	border-top: 10px solid #F1F4F6 !important;
+	background-color: #ffffff !important;
+}
+
+.table th {
+	font-family: "Nunito Bold" !important;
+	text-align: left;
+	border-bottom: 2px solid #F1F4F6 !important;
+}
+.table td {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	font-family: "Nunito SemiBold" !important;
+	line-height: 30px;
+} */
 

@@ -14,6 +14,17 @@ class Model_peserta extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    function getPartially(){
+        $this->db->select('peserta_pendaftar.id_pendaftaran,
+                            peserta_pendaftar.id_user,
+                            peserta_pendaftar.kd_peserta,
+                            peserta_pendaftar.nm_lengkap,
+                            peserta_pendaftar.jk,
+                            peserta_pendaftar.status,peserta_bayar_daftar.img_bukti');
+        $this->db->join('peserta_bayar_daftar', 'peserta_bayar_daftar.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
+        return $this->db->get('peserta_pendaftar')->result_array();
+    }
+
     function findBy(){
         $getIdUser = getUserData()['id_user'];
         $this->db->select('id_pendaftaran');
@@ -51,6 +62,16 @@ class Model_peserta extends CI_Model
         $idJurusan = $this->input->post('id_jurusan');
         $this->db->set('id_jurusan', $idJurusan);
         $this->db->where('id_pendaftaran', $idPendaftaran);
+        return $this->db->update('peserta_pendaftar');
+    }
+
+    public function changeStatus()
+    {
+        $id = $this->input->post('id_pendaftaran');
+        $status=$this->input->post('status');
+        
+	    $this->db->set('status',$status, true);
+		$this->db->where('id_pendaftaran', $id);
         return $this->db->update('peserta_pendaftar');
     }
 

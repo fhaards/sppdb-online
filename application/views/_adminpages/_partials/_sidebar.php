@@ -85,7 +85,7 @@
                     </li>
                     <li class="app-sidebar__heading">Peserta</li>
                     <li>
-                        <a href="<?= base_url() . 'list-peserta'; ?>" class="<?= ($hal == 'list-peserta') ? 'mm-active' : ''; ?>">
+                        <a href="<?= base_url() . 'peserta'; ?>" class="<?= ($hal == 'peserta') ? 'mm-active' : ''; ?>">
                             <i class="metismenu-icon fa fa-users"></i>
                             List Peserta
                         </a>

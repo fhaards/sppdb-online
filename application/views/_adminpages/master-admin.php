@@ -54,6 +54,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="<?php echo base_url() . 'vendor/twbs/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
     <script src="<?php echo base_url() . 'vendor/datatables/datatables/media/js/jquery.dataTables.min.js'; ?>"></script>
     <script src="<?php echo base_url() . 'vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js'; ?>"></script>
+    <script>
+        var l = window.location;
+        var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+    </script>
     <script src="<?php echo base_url() . 'assets/js/operations/opAdmin.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/operations/opJurusan.js'; ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/operations/opSekolah.js'; ?>"></script>

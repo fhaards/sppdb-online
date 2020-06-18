@@ -6,6 +6,7 @@ class Cntlr_peserta extends CI_Controller {
 		parent::__construct();
         redirectIfNotLogin();
         $this->load->model('model_peserta');
+        $this->load->model('model_ruang');
 	}
 	public function index()
 	{
@@ -39,9 +40,16 @@ class Cntlr_peserta extends CI_Controller {
         $data = $this->model_peserta->hapusData();
         echo json_encode($data);
     }
+
     public function changeStatus()
     {
         $data = $this->model_peserta->changeStatus();
+        echo json_encode($data);
+    }
+
+    public function cekRuang()
+    {
+        $data = $this->model_ruang->cekRuang();
         echo json_encode($data);
     }
 }

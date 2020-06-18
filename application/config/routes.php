@@ -130,6 +130,7 @@ $route['ruang-ujian/delete'] = 'Cntlr_ruangujian/hapusData';
 //---------------------  PESERTA
 $route['peserta'] = 'Cntlr_peserta';
 $route['peserta/list'] = 'Cntlr_peserta/tampilData';
+$route['peserta/cek-ruang'] = 'Cntlr_peserta/cekRuang';
 $route['peserta/change-status'] = 'Cntlr_peserta/changeStatus';
 
 $route['foo'] = 'Cntlr_foo/index';

@@ -55,6 +55,12 @@
                                 User Status : <strong> Invalid </strong>
                             </span>
                         </li>
+                    <?php elseif (getPesertaData()['status'] == 'Valid(Complete)') : ?>
+                        <li class="nav-item">
+                            <span class="bg-success text-white pt-1 pb-1 pl-2 pr-2" title="Silahkan lengkapi data pendaftaran"> 
+                                User Status : <strong> Complete </strong>
+                            </span>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>

@@ -99,6 +99,7 @@
                             Informasi Pendaftaran
                         </a>
                     </li>
+                    <?php if (getPesertaData()['status'] == 'Invalid(Unpaid)' || getPesertaData()['status'] == 'Valid(Unpaid)' || getPesertaData()['status'] == 'Valid(Waiting)') : ?>
                     <li class="app-sidebar__heading">Pendaftaran</li>
                     <li>
                         <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">
@@ -106,6 +107,7 @@
                             Lengkapi Pendaftaran
                         </a>
                     </li>
+                    <?php endif; ?>
                     <?php if (getPesertaData()['status'] == 'Valid(Unpaid)' || getPesertaData()['status'] == 'Valid(Waiting)') : ?>
                         <li>
                             <a href="<?= base_url() . 'konfirmasi-pembayaran'; ?>" class="<?= ($hal == 'konfirmasi-pembayaran') ? 'mm-active' : ''; ?>">

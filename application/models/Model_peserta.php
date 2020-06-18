@@ -8,13 +8,15 @@ class Model_peserta extends CI_Model
     {
         $this->load->database();
     }
-    function getAll(){
+    function getAll()
+    {
         $this->db->select('*');
         $this->db->from('peserta_pendaftar');
         return $this->db->get()->result_array();
     }
 
-    function getPartially(){
+    function getPartially()
+    {
         $this->db->select('peserta_pendaftar.id_pendaftaran,
                             peserta_pendaftar.id_user,
                             peserta_pendaftar.kd_peserta,
@@ -25,14 +27,15 @@ class Model_peserta extends CI_Model
         return $this->db->get('peserta_pendaftar')->result_array();
     }
 
-    function findBy(){
+    function findBy()
+    {
         $getIdUser = getUserData()['id_user'];
         $this->db->select('id_pendaftaran');
         $this->db->from('peserta_pendaftar');
         $this->db->where('id_user', $getIdUser);
         $query = $this->db->get();
-        $idPendaftaran=$query->row_array()['id_pendaftaran'];
-        if($query){
+        $idPendaftaran = $query->row_array()['id_pendaftaran'];
+        if ($query) {
             $this->db->select('*');
             $this->db->from('peserta_pendaftar');
             $this->db->join('peserta_orangtua', 'peserta_orangtua.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
@@ -68,11 +71,21 @@ class Model_peserta extends CI_Model
     public function changeStatus()
     {
         $id = $this->input->post('id_pendaftaran');
-        $status=$this->input->post('status');
-        
-	    $this->db->set('status',$status, true);
-		$this->db->where('id_pendaftaran', $id);
-        return $this->db->update('peserta_pendaftar');
+        $id_ruang = $this->input->post('id_ruang');
+        $status = $this->input->post('status');
+        // $this->db->set('status', $status, true);
+        // $this->db->set('id_ruang', $id_ruang, true);
+        $data = ['id_ruang' => $id_ruang, 'status' => $status];
+        $this->db->where('id_pendaftaran', $id);
+        return $this->db->update('peserta_pendaftar', $data);
+
+        // if (!empty($id_ruang)) {
+
+        // } else {
+        //     $this->db->set('status', $status, true);
+        //     $this->db->where('id_pendaftaran', $id);
+        //     return $this->db->update('peserta_pendaftar');
+        // }
     }
 
     function updateDataPribadi($idPendaftaran, $data, $dataOrtu, $dataDokumen)
@@ -88,15 +101,24 @@ class Model_peserta extends CI_Model
 
         $this->db->where('id_pendaftaran', $idPendaftaranDokumen);
         return $this->db->update('peserta_dokumen', $dataDokumen);
-    
     }
 
-    function updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran, $dataUbahStatus){
+    function updateBuktiPembayaran($idPendaftaran, $dataKonfirmasiPembayaran, $dataUbahStatus)
+    {
         $this->db->where('id_pendaftaran', $idPendaftaran);
         $this->db->update('peserta_pendaftar', $dataUbahStatus);
 
         $this->db->where('id_pendaftaran', $idPendaftaran);
         return $this->db->update('peserta_bayar_daftar', $dataKonfirmasiPembayaran);
     }
-}
 
+    function getPesertaRuangan()
+    {
+        $getIdUser = getUserData()['id_user'];
+        $this->db->select("*");
+        $this->db->join('ruang_ujian', 'ruang_ujian.id_ruang = peserta_pendaftar.id_ruang',FALSE);
+        $this->db->from("peserta_pendaftar");
+        $this->db->where("id_user",$getIdUser);
+        return $this->db->get()->row_array();
+    }
+}

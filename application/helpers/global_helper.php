@@ -41,6 +41,12 @@
 		return $ci->model_peserta->findByUser();
 	}
 	
+	function getPesertaRuang(){
+		$ci=& get_instance();
+		$ci->load->model('model_peserta');
+		return $ci->model_peserta->getPesertaRuangan();
+	}
+	
 	function getSchoolData(){
 		$ci=& get_instance();
 		$ci->load->model('model_sekolah');

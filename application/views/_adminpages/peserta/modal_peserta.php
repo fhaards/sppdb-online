@@ -25,14 +25,16 @@
                                 <label>Nama Peserta</label>
                                 <h6 id="nmPeserta"></h6>
                             </div>
-                            <div class="position-relative form-group">
+                            <div class="position-relative form-group" id="pilihStatus">
                                 <label>Ganti Status Ke </label>
-                                <select name="status" id="statusPeserta" class="form-control">
+                                <select name="status" id="statusPeserta" class="form-control selectPilihStatus">
                                     <option value="Invalid(Unpaid)">Invalid(Unpaid)</option>
                                     <option value="Valid(Unpaid)">Valid(Unpaid)</option>
                                     <option value="Valid(Waiting)">Valid(Waiting)</option>
-                                    <option value="Valid(Complete)">Valid(Complete)</option>
+                                    <option value="Valid(Complete)" id="Complete">Valid(Complete)</option>
                                 </select>
+                            </div>
+                            <div class="position-relative form-group" id="pilihRuang">
                             </div>
                         </div>
                     </div>
@@ -49,3 +51,6 @@
         </div>
     </div>
 </form>
+
+								<!-- <select class='form-control selectPilihRuang' name="id_ruang" id="selectPilihRuang">
+                                </select> -->

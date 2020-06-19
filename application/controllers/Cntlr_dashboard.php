@@ -11,7 +11,8 @@ class Cntlr_dashboard extends CI_Controller {
 		$data = [
 			'modal' => '_adminpages/_partials/empty',
 			'title' => 'Welcome',
-			'content' => '_adminpages/dashboard'
+			'content' => '_adminpages/dashboard',
+			'jsloader' => ''
 		];
 		$this->load->view('_adminpages/master-admin',$data);
 	}

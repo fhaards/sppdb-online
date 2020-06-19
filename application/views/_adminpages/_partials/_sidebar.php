@@ -104,7 +104,7 @@
                     <li>
                         <a href="<?= base_url() . 'konfirmasi'; ?>" class="<?= ($hal == 'konfirmasi') ? 'mm-active' : ''; ?>">
                             <i class="metismenu-icon fa fa-pen"></i>
-                            Lengkapi Pendaftaran
+                            Konfirmasi Pendaftaran
                         </a>
                     </li>
                     <?php endif; ?>

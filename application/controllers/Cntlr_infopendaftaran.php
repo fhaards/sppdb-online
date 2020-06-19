@@ -13,7 +13,8 @@ class Cntlr_infopendaftaran extends CI_Controller {
 			'modal' => '_adminpages/info_pendaftaran/modal_infopendaftaran',
 			'title' => 'Informasi Pendaftaran',
             'content' => '_adminpages/info_pendaftaran/index',
-            'infoPendaftaran' => $this->model_infopendaftaran->getAll()
+            'infoPendaftaran' => $this->model_infopendaftaran->getAll(),
+            'jsloader'=>'opInfoPendaftaran'
 		];
 		$this->load->view('_adminpages/master-admin',$data);    
     }

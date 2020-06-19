@@ -12,7 +12,8 @@ class Cntlr_berita extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/berita/modal_berita',
 			'title' => 'Berita',
-            'content' => '_adminpages/berita/index'
+            'content' => '_adminpages/berita/index',
+            'jsloader'=> 'opBerita'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }
@@ -35,7 +36,8 @@ class Cntlr_berita extends CI_Controller {
 			'modal' => '_adminpages/berita/modal_berita',
 			'title' => 'Berita',
             'content' => '_adminpages/berita/edit',
-            'showDetail' => $this->model_berita->detailData($id)
+            'showDetail' => $this->model_berita->detailData($id),
+            'jsloader'=> 'opBerita'
 		];
         //$data['showDetail']=$this->model_berita->detailData($id);
         $this->load->view('_adminpages/master-admin',$data);
@@ -65,7 +67,8 @@ class Cntlr_berita extends CI_Controller {
 			'modal' => '_adminpages/berita/modal_berita',
 			'title' => 'Berita',
             'content' => '_adminpages/berita/detail',
-            'showDetail' => $this->model_berita->detailData($id)
+            'showDetail' => $this->model_berita->detailData($id),
+            'jsloader'=> 'opBerita'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

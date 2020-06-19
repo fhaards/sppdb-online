@@ -12,7 +12,8 @@ class Cntlr_ruangujian extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/ruang_ujian/modal_ruang',
 			'title' => 'Ruang Ujian',
-            'content' => '_adminpages/ruang_ujian/index'
+            'content' => '_adminpages/ruang_ujian/index',
+            'jsloader'=> 'opRuangUjian'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

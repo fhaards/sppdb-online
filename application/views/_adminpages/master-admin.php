@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,16 +57,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         var l = window.location;
         var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
     </script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opAdmin.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opJurusan.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opSekolah.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opInfoPendaftaran.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opBerita.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opGelombang.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opKonfirmasi.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opPeserta.js'; ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/operations/opRuangUjian.js'; ?>"></script>
-
+    <?php $this->load->view('_adminpages/_partials/_jsloader');?>
 </body>
-
 </html>

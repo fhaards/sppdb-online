@@ -18,7 +18,6 @@
     <div class="col-md-12">
         <h6>
             Lengkapi Formulir Berikut : <br>
-            <small> Data Harus Lengkap. Setelah konfirmasi , jika user masih invalid silahkan kirimkan notif kepada administrator</small>
         </h6>
     </div>
     <div class="col-md-12">

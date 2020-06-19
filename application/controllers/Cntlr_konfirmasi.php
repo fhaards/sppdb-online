@@ -18,7 +18,8 @@ class Cntlr_konfirmasi extends CI_Controller
         $data = [
             'modal' => '_adminpages/konfirmasi/modal_konfirmasi',
             'title' => 'Konfirmasi Pendaftaran',
-            'content' => '_adminpages/konfirmasi/index'
+            'content' => '_adminpages/konfirmasi/index',
+            'jsloader' => 'opKonfirmasi'
         ];
         $data['getJurusan'] = $this->model_jurusan->getJurusanAktif();
         $this->load->view('_adminpages/master-admin', $data);
@@ -135,7 +136,8 @@ class Cntlr_konfirmasi extends CI_Controller
         $data = [
             'modal' => '_adminpages/konfirmasi/modal_konfirmasi',
             'title' => 'Konfirmasi Pembayaran',
-            'content' => '_adminpages/konfirmasi/form_konfirmasi_pembayaran'
+            'content' => '_adminpages/konfirmasi/form_konfirmasi_pembayaran',
+            'jsloader' => 'opKonfirmasi'
         ];
         $this->load->view('_adminpages/master-admin', $data);
     }

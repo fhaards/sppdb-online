@@ -12,7 +12,8 @@ class Cntlr_jurusan extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/jurusan/modal_jurusan',
 			'title' => 'Jurusan',
-            'content' => '_adminpages/jurusan/index'
+            'content' => '_adminpages/jurusan/index',
+            'jsloader' => 'opjurusan'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

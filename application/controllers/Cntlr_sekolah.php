@@ -13,7 +13,8 @@ class Cntlr_sekolah extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/sekolah/modal_sekolah',
 			'title' => 'Data Sekolah',
-            'content' => '_adminpages/sekolah/index'
+            'content' => '_adminpages/sekolah/index',
+            'jsloader' => 'opSekolah'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

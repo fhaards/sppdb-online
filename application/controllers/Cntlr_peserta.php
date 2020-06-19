@@ -13,7 +13,8 @@ class Cntlr_peserta extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/peserta/modal_peserta',
 			'title' => 'Peserta',
-            'content' => '_adminpages/peserta/index'
+            'content' => '_adminpages/peserta/index',
+            'jsloader' => 'opPeserta'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

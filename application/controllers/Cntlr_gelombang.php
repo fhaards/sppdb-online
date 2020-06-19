@@ -12,7 +12,8 @@ class Cntlr_gelombang extends CI_Controller {
         $data = [
 			'modal' => '_adminpages/gelombang/modal_gelombang',
 			'title' => 'Gelombang',
-            'content' => '_adminpages/gelombang/index'
+            'content' => '_adminpages/gelombang/index',
+            'jsloader' => 'opGelombang'
 		];
 		$this->load->view('_adminpages/master-admin',$data);
     }

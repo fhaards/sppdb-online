@@ -23,9 +23,9 @@
                     <h1 class="display-5">Hello, <?= getPesertaData()['nm_lengkap'] ?></h1>
                     <hr>
                     <?php if (getPesertaData()['status'] == 'Invalid(Unpaid)') : ?>
-                        <p class="lead mb-4">Anda Belum melengkapi formulir Pendaftaran</p>
+                        <p class="lead mb-4">Anda Belum melengkapi formulir Konfirmasi Pendaftaran</p>
                         <div class="alert alert-danger">
-                            Silahkan lengkapi formulir Pendaftaran . <a href="<?= base_url() . "konfirmasi"; ?>"> disini</a>
+                            Silahkan Melakukan Konfirmasi Pendaftaran . <a href="<?= base_url() . "konfirmasi"; ?>"> disini</a>
                         </div>
                         <?php
                         $progress = '25';

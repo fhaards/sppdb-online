@@ -2,14 +2,31 @@ $(document).ready(function () {
 	listPeserta();
 	cekRuangTersedia();
 
-    $("#pesertaTable").DataTable({
-        orderCellsTop: true,
-        fixedHeader: true,
-		pageLength: 10,
-		lengthChange :false,
-		bInfo:false,
+	$("#pesertaTable thead tr").clone(true).appendTo("#pesertaTable thead");
+	$("#pesertaTable thead tr:eq(1) .search").each(function (i) {
+	    var title = $(this).text();
+	    $(this).html(
+	        '<input type="text" id="searchSpecific" class="form-control" placeholder="Search ' +
+	            title +
+	            '" />'
+	    );
+
+	    $("#searchSpecific", this).on("keyup change", function () {
+	        if (table.column(i).search() !== this.value) {
+	            table.column(i).search(this.value).draw();
+	        }
+	    });
 	});
-	
+
+	var table = $("#pesertaTable").DataTable({
+	    orderCellsTop: true,
+	    fixedHeader: true,
+	    bLengthChange: false,
+	    pageLength: 10,
+		bInfo: false,
+		sDom: 'lrtip',
+	});
+
 	function successMsg() {
 		swal({
 			title: "Success",
@@ -45,21 +62,17 @@ $(document).ready(function () {
 						data[i].id_pendaftaran +
 						'">' +
 						"<td>" +
-						no++ +
-						"</td>" +
-						"<td>" +
 						data[i].kd_peserta +
 						"</td>" +
 						"<td>" +
 						data[i].nm_lengkap +
 						"</td>" +
 						"<td>" +
-						data[i].jk +
+						data[i].tgl_daftar +
 						"</td>" +
 						"<td>" +
 						data[i].status +
-						"</td>" +
-						"<td class='float-right'>" +
+						"<div class='float-right'>"+
 						'<a href="javascript:void(0);" class="btn btn-success btn-sm changeStatus" data-id-peserta="' +
 						data[i].id_pendaftaran +
 						'"data-nm-peserta="' +
@@ -78,6 +91,7 @@ $(document).ready(function () {
 						'data-total-peserta="' +
 						data[i].total +
 						'"><i class="fa fa-trash"></i></a>' +
+						"</div>";
 						"</td>" +
 						"</tr>";
 				}
@@ -85,7 +99,7 @@ $(document).ready(function () {
 			},
 		});
 	}
-	
+
 	//------------------ Change Status
 	function cekRuangTersedia() {
 		$.ajax({
@@ -97,16 +111,22 @@ $(document).ready(function () {
 			success: function (data) {
 				var showRuangTersedia = "";
 				var i;
-				showRuangTersedia += "<label>Pilih Ruangan </label>"+
-									 "<select class='form-control' name='id_ruang' id='selectPilihRuang'>";
+				showRuangTersedia +=
+					"<label>Pilih Ruangan </label>" +
+					"<select class='form-control' name='id_ruang' id='selectPilihRuang'>";
 				for (i = 0; i < data.length; i++) {
-					showRuangTersedia += '<option value="'+data[i].id_ruang+'">'+data[i].nm_ruang+'</option>';
+					showRuangTersedia +=
+						'<option value="' +
+						data[i].id_ruang +
+						'">' +
+						data[i].nm_ruang +
+						"</option>";
 				}
 				showRuangTersedia += "</select>";
-				$('#pilihRuang').html(showRuangTersedia);
+				$("#pilihRuang").html(showRuangTersedia);
 			},
-			error: function(){
-				$('#pilihRuang').html('');
+			error: function () {
+				$("#pilihRuang").html("");
 			},
 		});
 	}
@@ -117,35 +137,50 @@ $(document).ready(function () {
 		var statusPeserta = $(this).data("statusPeserta");
 		var kdPeserta = $(this).data("kdPeserta");
 		var imgBukti = $(this).data("imgBukti");
-		$('#pilihRuang').html('');
+		$("#pilihRuang").html("");
 
-		if($(this).data("statusPeserta") === 'Valid(Waiting)'){
-			$('#cekStatusPeserta').html('<img src="'+base_url+'/uploads/dokumen_peserta/'+kdPeserta+'/bukti_pembayaran/'+imgBukti+'" class="img-responsive" width="100%">');
-			$('#buktiPembayaran').show();
-			$("#pilihStatus").on("change",function(){ 
-				if($("#statusPeserta option:selected").attr('id') === 'Complete'){ 
+		if ($(this).data("statusPeserta") === "Valid(Waiting)") {
+			$("#cekStatusPeserta").html(
+				'<img src="' +
+					base_url +
+					"/uploads/dokumen_peserta/" +
+					kdPeserta +
+					"/bukti_pembayaran/" +
+					imgBukti +
+					'" class="img-responsive" width="100%">'
+			);
+			$("#buktiPembayaran").show();
+			$("#pilihStatus").on("change", function () {
+				if ($("#statusPeserta option:selected").attr("id") === "Complete") {
 					cekRuangTersedia();
 				} else {
-					$('#pilihRuang').html('');
+					$("#pilihRuang").html("");
 				}
 			});
-		} else if($(this).data("statusPeserta") === 'Valid(Complete)'){
-			$('#cekStatusPeserta').html('<img src="'+base_url+'/uploads/dokumen_peserta/'+kdPeserta+'/bukti_pembayaran/'+imgBukti+'" class="img-responsive" width="100%">');
-			$('#buktiPembayaran').show();
+		} else if ($(this).data("statusPeserta") === "Valid(Complete)") {
+			$("#cekStatusPeserta").html(
+				'<img src="' +
+					base_url +
+					"/uploads/dokumen_peserta/" +
+					kdPeserta +
+					"/bukti_pembayaran/" +
+					imgBukti +
+					'" class="img-responsive" width="100%">'
+			);
+			$("#buktiPembayaran").show();
 			cekRuangTersedia();
 		} else {
-			$('#cekStatusPeserta').html('');
-			$('#buktiPembayaran').hide();
-			$('#pilihRuang').html('');
+			$("#cekStatusPeserta").html("");
+			$("#buktiPembayaran").hide();
+			$("#pilihRuang").html("");
 		}
 
 		$("#changeStatusPesertaModal").modal("show");
 		$("#idPeserta").val(idPeserta);
-		$("#nmPeserta").text(nmPeserta);	
+		$("#nmPeserta").text(nmPeserta);
 		$("#statusPeserta").val(statusPeserta);
-
 	});
-	
+
 	$("#editFormPeserta").on("submit", function () {
 		var idPeserta = $("#idPeserta").val();
 		var idRuang = $("#selectPilihRuang").val();
@@ -154,7 +189,11 @@ $(document).ready(function () {
 			type: "POST",
 			url: "peserta/change-status",
 			dataType: "JSON",
-			data: { id_pendaftaran: idPeserta,id_ruang:idRuang, status: statusPeserta},
+			data: {
+				id_pendaftaran: idPeserta,
+				id_ruang: idRuang,
+				status: statusPeserta,
+			},
 			success: function (data) {
 				$("#changeStatusPesertaModal").modal("hide");
 				successMsg();
@@ -186,8 +225,6 @@ $(document).ready(function () {
 //     }
 // });
 
-
-
 // $("#pesertaTable thead tr").clone(true).appendTo("#pesertaTable thead");
 // $("#pesertaTable thead tr:eq(1) .search").each(function (i) {
 //     var title = $(this).text();
@@ -204,10 +241,10 @@ $(document).ready(function () {
 //     });
 // });
 
-    // var table = $("#pesertaTable").DataTable({
-    //     orderCellsTop: true,
-    //     fixedHeader: true,
-    //     bLengthChange: false,
-    //     pageLength: 1,
-    //     bInfo: false,
-    // });
+// var table = $("#pesertaTable").DataTable({
+//     orderCellsTop: true,
+//     fixedHeader: true,
+//     bLengthChange: false,
+//     pageLength: 1,
+//     bInfo: false,
+// });

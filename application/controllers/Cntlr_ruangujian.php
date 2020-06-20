@@ -1,21 +1,38 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Cntlr_ruangujian extends CI_Controller {
-	function __construct(){
-		parent::__construct();
+class Cntlr_ruangujian extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
         redirectIfNotLogin();
         $this->load->model('model_ruang');
-	}
-	public function index()
-	{
+    }
+    public function index()
+    {
         $data = [
-			'modal' => '_adminpages/ruang_ujian/modal_ruang',
-			'title' => 'Ruang Ujian',
+            'modal' => '_adminpages/ruang_ujian/modal_ruang',
+            'title' => 'Ruang Ujian',
             'content' => '_adminpages/ruang_ujian/index',
-            'jsloader'=> 'opRuangUjian'
-		];
-		$this->load->view('_adminpages/master-admin',$data);
+            'jsloader' => 'opRuangUjian'
+        ];
+        $this->load->view('_adminpages/master-admin', $data);
+    }
+    public function detailData($id)
+    {   
+        $this->load->library('RoomLayout');
+        $this->roomlayout->init(30);
+        $data = [
+            'modal' => '_adminpages/ruang_ujian/modal_ruang',
+            'title' => 'Ruang Ujian',
+            'content' => '_adminpages/ruang_ujian/detail',
+            'jsloader' => 'opRuangUjian',
+            'detailRuang' => $this->model_ruang->detailRuangUjian($id),
+            // 'listDetailRuang' => $this->model_ruang->listDetailRuangUjian($id),
+            'listDetailRuang' => $this->roomlayout->roomFormatter($this->model_ruang->listDetailRuangUjian($id))
+        ];
+        $this->load->view('_adminpages/master-admin', $data);
     }
     public function tampilData()
     {

@@ -1,87 +1,103 @@
-html,*{
-	font-family:'Nunito Regular';
+html,
+* {
+	font-family: "Nunito Regular";
 }
 
-.btn{
-	font-family:'Nunito Bold';
+.btn {
+	font-family: "Nunito Bold";
 }
 
 /*/////////////////// IS MODAL */
-.modal .modal-dialog{
-	box-shadow:none;
+.modal .modal-dialog {
+	box-shadow: none;
 }
-.modal .modal-content .modal-header{
+.modal .modal-content .modal-header {
 	background-color: #ffffff !important;
-	border:0px;
+	border: 0px;
 }
 
 /*/////////////////// IS PAGE TITLE */
 
-.page-title{
+.page-title {
 	color: #333333;
 }
-.page-title h2::before{
-	content:"";
+.page-title h2::before {
+	content: "";
 	width: 20px;
 	height: 2px;
 	background-color: #333333;
 	position: relative;
 	display: inline-block;
-	border-radius:50px;
-	margin-bottom:8px;
-	margin-right:5px;
+	border-radius: 50px;
+	margin-bottom: 8px;
+	margin-right: 5px;
 }
-.page-title h3{
-	border-bottom:2px solid #4A73DA;
-	padding-bottom:5px;
+.page-title h3 {
+	border-bottom: 2px solid #4a73da;
+	padding-bottom: 5px;
 }
-.page-title-subheading{
-	margin-top:-10px !important;
-	margin-left:-10px !important;
+.page-title-subheading {
+	margin-top: -10px !important;
+	margin-left: -10px !important;
 }
-.page-sub-title{
-	margin-top:-10px !important;
+.page-sub-title {
+	margin-top: -10px !important;
 }
-
 
 @media (max-width: 768px) {
-	.page-title h1{
-		font-size:1.5em !important;
+	.page-title h1 {
+		font-size: 1.5em !important;
 	}
-	.page-sub-title p{
-		font-size:1em !important;
+	.page-sub-title p {
+		font-size: 1em !important;
 	}
-	.display-5{
-		border-bottom:2px solid #4A73DA;
-		padding-bottom:5px;
-		font-size:2em !important;
+	.display-5 {
+		border-bottom: 2px solid #4a73da;
+		padding-bottom: 5px;
+		font-size: 2em !important;
 	}
 }
 /*/////////////////// FORM */
-.form-group label{
-	font-family:'Nunito Bold';
+.form-group label {
+	font-family: "Nunito Bold";
 }
 
 /*/////////////////// PHOTO */
-.img-profile{
+.img-profile {
 	max-width: 150px;
-	max-height:200px;
+	max-height: 200px;
 	width: 150px;
 	height: 200px;
 }
-.img-profile img{
+.img-profile img {
 	height: 100%;
-	width: 150px; 
+	width: 150px;
 	object-fit: cover;
 }
-.img-profile-navbar{
-	width:30px;
+.img-profile-navbar {
+	width: 30px;
 	height: 100%;
-	margin:0px !important;
-	padding:0px !important;
+	margin: 0px !important;
+	padding: 0px !important;
 }
-.img-profile-navbar img{
+.img-profile-navbar img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
+.fit-image {
+	width: 100%;
+	object-fit: cover;
+	height: 50px; /* only if you want fixed height */
+}
+
+/* .img-detail-grid {
+	height: auto;
+	width: auto;
+}
+.img-detail-grid img {
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	object-fit: cover;
+} */

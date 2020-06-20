@@ -22,6 +22,7 @@ class Model_peserta extends CI_Model
                             peserta_pendaftar.kd_peserta,
                             peserta_pendaftar.nm_lengkap,
                             peserta_pendaftar.jk,
+                            peserta_pendaftar.tgl_daftar,
                             peserta_pendaftar.status,peserta_bayar_daftar.img_bukti');
         $this->db->join('peserta_bayar_daftar', 'peserta_bayar_daftar.id_pendaftaran = peserta_pendaftar.id_pendaftaran');
         return $this->db->get('peserta_pendaftar')->result_array();
@@ -73,19 +74,9 @@ class Model_peserta extends CI_Model
         $id = $this->input->post('id_pendaftaran');
         $id_ruang = $this->input->post('id_ruang');
         $status = $this->input->post('status');
-        // $this->db->set('status', $status, true);
-        // $this->db->set('id_ruang', $id_ruang, true);
         $data = ['id_ruang' => $id_ruang, 'status' => $status];
         $this->db->where('id_pendaftaran', $id);
         return $this->db->update('peserta_pendaftar', $data);
-
-        // if (!empty($id_ruang)) {
-
-        // } else {
-        //     $this->db->set('status', $status, true);
-        //     $this->db->where('id_pendaftaran', $id);
-        //     return $this->db->update('peserta_pendaftar');
-        // }
     }
 
     function updateDataPribadi($idPendaftaran, $data, $dataOrtu, $dataDokumen)
@@ -121,4 +112,5 @@ class Model_peserta extends CI_Model
         $this->db->where("id_user",$getIdUser);
         return $this->db->get()->row_array();
     }
+   
 }

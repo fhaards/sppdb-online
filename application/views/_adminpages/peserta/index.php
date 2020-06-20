@@ -22,21 +22,17 @@
 
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-responsive-sm table-bordered table-striped" id="pesertaTable" style="width:100%">
+        <table class="table table-responsive-sm table-bordered table-striped display dataTable" id="pesertaTable" style="width:100%">
             <thead>
                 <tr>
-                    <th></th>
                     <th class="search">KD Peserta</th>
                     <th class="search">Nama</th>
-                    <th class="search">JK</th>
-                    <th class="search">Status</th>
-                    <th></th>
+                    <th class="search">Tgl Pendaftaran</th>
+                    <th class="search" id="searchingStatus">Status</th>
                 </tr>
             </thead>
-            <tbody id="listPeserta">
-
-            </tbody>
-
+            <tbody id="listPeserta"></tbody>
+            <tfoot></tfoot>
         </table>
     </div>
 </div>

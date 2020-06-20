@@ -35,6 +35,23 @@ class Model_ruang extends CI_Model
         }
     }
 
+    function detailRuangUjian($id){
+        $this->db->select('*');
+        $this->db->from('ruang_ujian');
+        $this->db->where('id_ruang',$id);
+        $query=$this->db->get();
+		return $query->row_array();
+    }
+    function listDetailRuangUjian($id){
+        $this->db->select('peserta_pendaftar.nm_lengkap,peserta_pendaftar.kd_peserta,peserta_pendaftar.photo');
+        $this->db->from('peserta_pendaftar');
+        $this->db->join('ruang_ujian','ruang_ujian.id_ruang=peserta_pendaftar.id_ruang');
+        $this->db->where('peserta_pendaftar.id_ruang',$id);
+        $query=$this->db->get();
+		return $query->result_array();
+    }
+
+
     public function inputData()
     {
         $data = [

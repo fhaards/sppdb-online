@@ -1,22 +1,24 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Cntlr_peserta extends CI_Controller {
-	function __construct(){
-		parent::__construct();
+class Cntlr_peserta extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
         redirectIfNotLogin();
         $this->load->model('model_peserta');
         $this->load->model('model_ruang');
-	}
-	public function index()
-	{
+    }
+    public function index()
+    {
         $data = [
-			'modal' => '_adminpages/peserta/modal_peserta',
-			'title' => 'Peserta',
+            'modal' => '_adminpages/peserta/modal_peserta',
+            'title' => 'Peserta',
             'content' => '_adminpages/peserta/index',
             'jsloader' => 'opPeserta'
-		];
-		$this->load->view('_adminpages/master-admin',$data);
+        ];
+        $this->load->view('_adminpages/master-admin', $data);
     }
     public function tampilData()
     {

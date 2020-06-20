@@ -77,6 +77,8 @@ $(document).ready(function () {
 						'data-total-peserta="' +
 						data[i].total +
 						'"><i class="fa fa-trash"></i></a>' +
+						" " +
+						'<a href="ruang-ujian/detail/'+data[i].ruangId +'" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>'+
 						"</td>" +
 						"</tr>";
 				}

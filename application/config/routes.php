@@ -104,7 +104,7 @@ $route['info-pendaftaran'] = 'Cntlr_infopendaftaran';
 $route['info-pendaftaran/list'] = 'Cntlr_infopendaftaran/tampilData';
 $route['info-pendaftaran/update'] = 'Cntlr_infopendaftaran/updateData';
 
-//---------------------  INFO PENDAFTARAN
+//---------------------  Berita
 $route['berita'] = 'Cntlr_berita';
 $route['berita/list'] = 'Cntlr_berita/tampilData';
 $route['berita/create'] = 'Cntlr_berita/simpanData';
@@ -126,6 +126,7 @@ $route['ruang-ujian/list'] = 'Cntlr_ruangujian/tampilData';
 $route['ruang-ujian/create'] = 'Cntlr_ruangujian/simpanData';
 $route['ruang-ujian/update'] = 'Cntlr_ruangujian/updateData';
 $route['ruang-ujian/delete'] = 'Cntlr_ruangujian/hapusData';
+$route['ruang-ujian/detail/(:any)'] = 'Cntlr_ruangujian/detailData/$1';
 
 //---------------------  PESERTA
 $route['peserta'] = 'Cntlr_peserta';

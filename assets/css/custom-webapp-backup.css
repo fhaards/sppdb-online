@@ -122,7 +122,8 @@
 */
 
 .section1{
-	background: rgb(224,243,255) url(../images/components/school-bg.svg) no-repeat right fixed;
+	/* background: rgb(224,243,255) url(../images/components/school-bg.svg) no-repeat right fixed; */
+	background: rgb(224,243,255) url(../images/hero_highschool.jpg) no-repeat right fixed;
 	height:100vh;
 	overflow-y: scroll;
 }

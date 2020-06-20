@@ -51,6 +51,9 @@
 .nav-webapp .header-menu .nav-item .nav-link{
 	font-family: 'Nunito Bold' !important;
 	font-size:14px;
+	color:#ffffff !important;
+}
+.nav-webapp.bgWhite .header-menu .nav-item .nav-link{
 	color:#4A73DA !important;
 }
 .nav-webapp .header-menu .nav-item .navbar-link::after{
@@ -189,8 +192,14 @@
 */
 
 .section1{
-	background: #1E3F75 url(../images/components/school-bg.svg) no-repeat right fixed;
+	background: url(../images/components/hero_highschool.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	height:100vh;
+	/* background: #1E3F75 url(../images/components/school-bg.svg) no-repeat right fixed;
+	height:100vh; */
 }
 .section1 .section-content{
 	margin-top:150px;
@@ -243,7 +252,7 @@
 */
 
 .section2{
-	background-color: #F1F4F6;
+	background-color: #ffffff;
 }
 
 .section2 .section-prosedur .card-prosedur{
@@ -304,6 +313,8 @@
 
 .section4{
 	background-color: #212121;
+	/* background: #212121 url(../images/components/school-bg.svg) no-repeat right fixed;
+	opacity:0.5; */
 }
 
 .section4 .section-prosedur .card .card-body{

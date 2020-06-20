@@ -15,7 +15,9 @@
                 </div>
             </div>
         </div>
+
         <div class="section-content section-prosedur mt-2 mb-5" id="section-prosedur">
+            <hr>
             <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                 <li class="nav-item">
                     <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
@@ -33,12 +35,13 @@
                     </a>
                 </li>
             </ul>
+            <hr>
             <div class="tab-content">
                 <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-prosedur">
-                                <div class="card-body">
+                                <div class="card-body p-0">
                                     <?= $infoPendaftaran['cara_mendaftar']; ?>
                                 </div>
                             </div>
@@ -49,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-prosedur">
-                                <div class="card-body">
+                                <div class="card-body p-0">
                                     <?= $infoPendaftaran['info_pembayaran']; ?>
                                 </div>
                             </div>
@@ -60,7 +63,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-prosedur">
-                                <div class="card-body">
+                                <div class="card-body p-0">
                                     <?= $infoPendaftaran['dokumen']; ?>
                                 </div>
                             </div>

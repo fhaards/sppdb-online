@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nama Pengawas :</label>
-                    <br>Hermawan
+                    <br>Hermawati
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a data-toggle="tab" href="#tab-eg13-0" class="nav-link show active"><i class="fa fa-list mr-2"></i>List View</a></li>
-                    <li class="nav-item"><a data-toggle="tab" href="#tab-eg13-1" class="nav-link show"><i class="fa fa-th mr-2"></i>Grid View</a></li>
+                    <li class="nav-item"><a data-toggle="tab" href="#tab-eg13-1" class="nav-link show d-md-block d-lg-block d-none"><i class="fa fa-th mr-2"></i>Grid View</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="tab-eg13-0" role="tabpanel">
@@ -44,10 +44,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=1; ?>
+                                <?php $no = 1; ?>
                                 <?php foreach ($listDetailRuang as $Ldetail) : ?>
                                     <tr>
-                                        <td><?= $no++;?></td>
+                                        <td><?= $no++; ?></td>
                                         <td><?= $Ldetail['kd_peserta']; ?></td>
                                         <td><?= $Ldetail['nm_lengkap']; ?></td>
                                     </tr>
@@ -56,45 +56,37 @@
                         </table>
                     </div>
                     <div class="tab-pane show" id="tab-eg13-1" role="tabpanel">
-                        <hr>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <div class="card m-0">
-                                    <div class="card-body m-0 p-1 text-center"> BOARD </div>
+                        <div class="RoomLayout">
+                            <div class="thisBoard"> BOARD </div>
+                            <div class="pengawas">
+                                <div>
+                                    <img src="<?= base_url() . 'uploads/dokumen_peserta/empty_user/personBlack.svg' ?>" alt="">
+                                </div>
+                                <div class="pengawasName">
+                                    Pengawas : <br>
+                                    Hermawati
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="card">
-                                    <div class="card-body p-2">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <img class="rounded-circle" src="<?= base_url() . 'uploads/dokumen_peserta/_default_user.svg' ?>" alt="">
-                                            </div>
-                                            <div class="col-8">
-                                                <span class="float-right">
-                                                    Pengawas : <br>
-                                                    Hermawan
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-5">
+
+                        <div class="ListPersonLayout">
                             <?php foreach ($listDetailRuang as $Ldetail) : ?>
-                                <div class="col-1 mb-2">
-                                    <div class="card">
-                                        <div class="card-body p-0">
-                                            <img class="img-responsive fit-image" src="<?= base_url() . 'uploads/dokumen_peserta/' . $Ldetail['kd_peserta'] . '/' . $Ldetail['photo']; ?>" alt="">
-                                        </div>
+
+                                <div class="PersonLayout">
+                                    <div class='imagePerson'>
+                                        <img class="img-responsive fit-image" src="<?= base_url() . 'uploads/dokumen_peserta/' . $Ldetail['kd_peserta'] . '/' . $Ldetail['photo']; ?>" alt="">
+                                    </div>
+                                    <div class='identityPerson'>
+                                        <span class="text">
+                                            <?= $Ldetail['kd_peserta']; ?> <br>
+                                            <strong><?= $Ldetail['nm_lengkap']; ?></strong>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="col-1"></div>
                             <?php endforeach; ?>
+
                         </div>
+
 
                     </div>
                 </div>
@@ -104,7 +96,22 @@
     </div>
 </div>
 
-<!-- 
+<!--
+<?php foreach ($listDetailRuang as $Ldetail) : ?>
+    <div class="ListPersonLayout">
+        <div class="PersonLayout">
+            <div class='imagePerson'>
+
+            </div>
+            <div class='identityPerson'>
+                <span class="text">
+                    <?= $Ldetail['kd_peserta']; ?> <br>
+                    <strong><?= $Ldetail['nm_lengkap']; ?></strong>
+                </span>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 <hr>
 <?php
 // $Max = $detailRuang['max'];

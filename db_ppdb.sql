@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jun 2020 pada 22.24
+-- Waktu pembuatan: 21 Jun 2020 pada 20.15
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -168,9 +168,9 @@ CREATE TABLE `peserta_pendaftar` (
 --
 
 INSERT INTO `peserta_pendaftar` (`id_pendaftaran`, `kd_peserta`, `id_user`, `id_jurusan`, `nm_lengkap`, `nisn`, `jk`, `agama`, `tempat_lahir`, `tgl_lahir`, `provinsi`, `kota`, `alamat`, `id_gel`, `photo`, `tgl_daftar`, `id_ruang`, `status`) VALUES
-(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'L', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', '2020-06-17', 1, 'Valid(Complete)'),
-(26, '3878697645', 74, 7, 'Faris Salahud', '', '', '', '', '0000-00-00', '', '', '', 5, '', '2020-06-18', 2, 'Invalid(Unpaid)'),
-(27, '5237525468', 75, 7, 'Amira Istiqomah', '15516132', 'L', 'Islam', 'Jakarta', '2000-06-17', '32', '3201', 'Bukit Dago A-9 No.32', 5, 'b9b9d12783fc2e1d7e740d43ad7eeabd.JPG', '0000-00-00', 0, 'Valid(Waiting)');
+(25, '8715668347', 73, 7, 'Muhammad Fahmi', '17114190', 'L', 'Islam', 'Jakarta', '1998-06-16', '32', '3201', 'Jl. Bukit Dago Permai 2', 5, '7ba79d88638f94d45d2ce2619f843239.JPG', '2020-06-17', 2, 'Valid(Complete)'),
+(26, '3878697645', 74, 7, 'Faris Salahud', '', '', '', '', '0000-00-00', '', '', '', 5, '', '2020-06-18', 0, 'Invalid(Unpaid)'),
+(27, '5237525468', 75, 7, 'Amira Istiqomah Mufidadahlia\r\n', '15516132', 'L', 'Islam', 'Jakarta', '2000-06-17', '32', '3201', 'Bukit Dago A-9 No.32', 5, 'b9b9d12783fc2e1d7e740d43ad7eeabd.JPG', '2020-06-21', 2, 'Valid(Complete)');
 
 -- --------------------------------------------------------
 
@@ -189,8 +189,9 @@ CREATE TABLE `ruang_ujian` (
 --
 
 INSERT INTO `ruang_ujian` (`id_ruang`, `nm_ruang`, `max`) VALUES
-(1, 'GD101', 30),
-(2, 'GD102', 30);
+(1, 'GD101', 5),
+(2, 'GD102', 30),
+(5, 'GD103', 30);
 
 -- --------------------------------------------------------
 
@@ -259,7 +260,7 @@ CREATE TABLE `_info` (
 --
 
 INSERT INTO `_info` (`id_info`, `cara_mendaftar`, `dokumen`, `info_pembayaran`, `welcome_msg`) VALUES
-(1, '<h3>Prosedur Pendaftaran</h3>\n<p>Berikut Prosedur / Tata Cara Pendaftaran : </p>\n<p>1. Lakukan registrasi pada kolom registrasi <br>2. Login kedalam aplikasi <br>3. Lengkapi formulir pendaftaran <br>    - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid</strong><br>4. Lengkapi formulir konfirmasi pembayaran<br>    - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid ( Waiting ) </strong><em><strong><br></strong></em>5. Tunggu beberapa saat , hingga status berbanti menjadi <strong>Valid ( Complete )</strong> <br>6. Setelah status user berganti menjadi <strong>Valid ( Complete )</strong>, <br>    anda akan mendapatkan Kartu Ujian yang berisi : <strong>Tanggal </strong>dan<strong> Ruang Ujian</strong><em><strong><br></strong></em>7. Cetak Kartu Ujian <em><strong><br><br></strong></em><strong>SEMOGA BERHASIL</strong></p>', '<p><strong>Dokumen Persyaratan Umum yang dibutuhkan meliputi: </strong></p>\n<p>1. Fotokopi akta kelahiran <br>2. Fotokopi ijazah <br>3. Fotokopi SHUN <br>4. Fotokopi Kartu Keluarga (KK) <br>5. Fotokopi KTP Orang tua <br>6. Surat Kelakuan Baik <br>7. Surat tanggung jawab mutlak orang tua <br>8. Pas foto siswa ukuran 4x6 sebanyak 3 lembar <br>9. Dokumen khusus sesuai jalur yang ditempuh</p>\n<p><strong>Selain itu, beberapa ketentuan ini juga bisa menjadi perhatian bagi calon peserta didik: </strong></p>\n<p>1. SHUN tidak dipersyaratkan bagi ABK/CPD lulusan sistem pendidikan dari luar negeri. <br>2. Dokumen asli dari dokumen yang difotokopi disertakan untuk verifikasi oleh panitia pendaftaran di satuan pendidikan atau cabang dinas. <br>3. Selanjutnya pendaftar akan menerima Surat Tanda Bukti Pendaftaran (STBP).</p>\n<p><strong>Dokumen persyaratan khusus yang diperlukan meliputi: </strong></p>\n<p><br>1. Surat Keterangan Tidak Mampu (SKTM) dari kelurahan, atau Kartu Keluarga Sejahtera (KKS) atau Kartu Indonesia Pintar (KIP) atau Kartu Indonesia Sehat (KIS) bagi calon peserta didik jalur KETM.</p>\n<p><br>2. Data Hasil Diagnosa/Assesment Psikolog atau Pakar dari pergurua tinggi layanan khusus atau pusat dukungan (Ressource Center) atau kelompok kerja inklusi bagi calon peserta didik berkebutuhan khusus atau penyandang disabilitas.</p>\n<p><br>3. Surat Keterangan dari Pimpinan Tempat Orang Tua Bertugas, sertifikat pendidik, SK pengangkatan pertama, SK pembagian tugas mengajar/membimbing/membina, bagi calon peserta didik jalur Penghargaan Maslahat Guru (PMG).</p>\n<p><br>4. Kartu Keluarga (KK) yang menunjukkan calon peserta didik telah menetap pada tempat domisili sekurang-kurangnya selama 6 bulan, bagi calon peserta didik Warga Penduduk Setempat (WPS).</p>\n<p><br>5. Piagam/Sertifikat yang dilegalisasi pihak kejuaraan, atau piala/medali dengan surat keterangan dari panitia atau pihak berwenang, bagi calon peserta didik Jalur Prestasi.</p>\n<p> </p>', '<p><strong>Informasi Pembayaran</strong></p>\n<p>.................</p>', '<p><strong>Selamat Datang <br>Sistem Penerimaan Peserta Didik Baru<br></strong>SMK Science Technology & Business Depok</p>');
+(1, '<h3>Prosedur Pendaftaran</h3>\n<p>Berikut Prosedur / Tata Cara Pendaftaran : </p>\n<p>1. Lakukan registrasi pada kolom registrasi <br>2. Login kedalam aplikasi <br>3. Lengkapi formulir <strong>Konfirmasi Pendaftaran</strong> <br>    - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid<br></strong>4. Lengkapi formulir <strong>Konfirmasi Pembayaran</strong>    <br>     - setelah melengkapi pendaftaran , status user akan berganti menjadi <strong>Valid ( Waiting ) <br></strong>5. Administrator akan mengecek keaslian bukti pembayaran<br>6. Setelah Administrator melakukan pengecekan dan dinyatakan keasliannya maka,  <br>    status diganti menjadi <strong>Valid ( Complete )</strong> <br>7. Setelah status user berganti menjadi <strong>Valid ( Complete )</strong>, <br>    anda akan mendapatkan Kartu Ujian yang berisi : <strong>Tanggal </strong>dan<strong> Ruang Ujian<br></strong>8. Cetak Kartu Ujian <br><em><strong><br></strong></em></p>\n<h3>Registration Procedure</h3>\n<p>Following Procedure / Procedure for Registration:</p>\n<p>1. Register in the registration column<br>2. Login into the application<br>3. Complete the <strong>Registration Confirmation form</strong><br>     - after completing registration, the user\'s status will change to <strong>Valid</strong><br>4. Complete the <strong>Payment Confirmation form</strong><br>      - after completing registration, the user\'s status will change to <strong>Valid (Waiting)</strong><br>5. The administrator will check the authenticity of the proof of payment<br>6. After the Administrator checks and certifies its authenticity,<br>     status changed to <strong>Valid (Complete)</strong><br>7. After the user\'s status changes to <strong>Valid (Complete),</strong><br>     You will get an Exam Card which contains: Date and Test Room<br>8. Print the Test Card</p>\n<p><strong>SEMOGA BERHASIL / GOODLUCK </strong></p>', '<p><strong>Dokumen Persyaratan Umum yang dibutuhkan meliputi: </strong></p>\n<p>1. Fotokopi akta kelahiran <br>2. Fotokopi ijazah <br>3. Fotokopi SHUN <br>4. Fotokopi Kartu Keluarga (KK) <br>5. Fotokopi KTP Orang tua <br>6. Surat Kelakuan Baik <br>7. Surat tanggung jawab mutlak orang tua <br>8. Pas foto siswa ukuran 4x6 sebanyak 3 lembar <br>9. Dokumen khusus sesuai jalur yang ditempuh</p>\n<p><strong>Selain itu, beberapa ketentuan ini juga bisa menjadi perhatian bagi calon peserta didik: </strong></p>\n<p>1. SHUN tidak dipersyaratkan bagi ABK/CPD lulusan sistem pendidikan dari luar negeri. <br>2. Dokumen asli dari dokumen yang difotokopi disertakan untuk verifikasi oleh panitia pendaftaran di satuan pendidikan atau cabang dinas. <br>3. Selanjutnya pendaftar akan menerima Surat Tanda Bukti Pendaftaran (STBP).</p>\n<p><strong>Dokumen persyaratan khusus yang diperlukan meliputi: </strong></p>\n<p><br>1. Surat Keterangan Tidak Mampu (SKTM) dari kelurahan, atau Kartu Keluarga Sejahtera (KKS) atau Kartu Indonesia Pintar (KIP) atau Kartu Indonesia Sehat (KIS) bagi calon peserta didik jalur KETM.</p>\n<p><br>2. Data Hasil Diagnosa/Assesment Psikolog atau Pakar dari pergurua tinggi layanan khusus atau pusat dukungan (Ressource Center) atau kelompok kerja inklusi bagi calon peserta didik berkebutuhan khusus atau penyandang disabilitas.</p>\n<p><br>3. Surat Keterangan dari Pimpinan Tempat Orang Tua Bertugas, sertifikat pendidik, SK pengangkatan pertama, SK pembagian tugas mengajar/membimbing/membina, bagi calon peserta didik jalur Penghargaan Maslahat Guru (PMG).</p>\n<p><br>4. Kartu Keluarga (KK) yang menunjukkan calon peserta didik telah menetap pada tempat domisili sekurang-kurangnya selama 6 bulan, bagi calon peserta didik Warga Penduduk Setempat (WPS).</p>\n<p><br>5. Piagam/Sertifikat yang dilegalisasi pihak kejuaraan, atau piala/medali dengan surat keterangan dari panitia atau pihak berwenang, bagi calon peserta didik Jalur Prestasi.</p>\n<p> </p>', '<p><strong>Informasi Pembayaran</strong></p>\n<p>.................</p>', '<p><strong>Selamat Datang <br>Sistem Penerimaan Peserta Didik Baru<br></strong>SMK Science Technology & Business Depok</p>');
 
 -- --------------------------------------------------------
 
@@ -404,7 +405,7 @@ ALTER TABLE `peserta_pendaftar`
 -- AUTO_INCREMENT untuk tabel `ruang_ujian`
 --
 ALTER TABLE `ruang_ujian`
-  MODIFY `id_ruang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_ruang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

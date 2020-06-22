@@ -11,7 +11,7 @@ class Model_ruang extends CI_Model
 
     function getAll()
     {
-        $this->db->select('ruang_ujian.id_ruang as ruangId,ruang_ujian.nm_ruang,ruang_ujian.max,COUNT(peserta_pendaftar.id_ruang) as total');
+        $this->db->select('ruang_ujian.id_ruang as ruangId,ruang_ujian.nm_ruang,ruang_ujian.nm_pengawas,ruang_ujian.max,COUNT(peserta_pendaftar.id_ruang) as total');
         $this->db->join('peserta_pendaftar', 'peserta_pendaftar.id_ruang = ruang_ujian.id_ruang', 'left');
         $this->db->from('ruang_ujian');
         $this->db->group_by("ruangId");
@@ -56,6 +56,7 @@ class Model_ruang extends CI_Model
     {
         $data = [
             "nm_ruang" => $this->input->post('nm_ruang', true),
+            "nm_pengawas" => $this->input->post('nm_pengawas', true),
             "max" => $this->input->post('max', true),
         ];
         return $this->db->insert('ruang_ujian', $data);
@@ -66,6 +67,7 @@ class Model_ruang extends CI_Model
         $id = $this->input->post('id_ruang');
         $data = [
             "nm_ruang" => $this->input->post('nm_ruang', true),
+            "nm_pengawas" => $this->input->post('nm_pengawas', true),
             "max" => $this->input->post('max', true),
         ];
         $this->db->where('id_ruang', $id);

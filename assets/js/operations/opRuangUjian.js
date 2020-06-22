@@ -57,6 +57,9 @@ $(document).ready(function () {
 						data[i].nm_ruang +
 						"</td>" +
 						"<td>" +
+						data[i].nm_pengawas +
+						"</td>" +
+						"<td>" +
 						data[i].max +
 						"</td>" +
 						"<td>" +
@@ -67,6 +70,8 @@ $(document).ready(function () {
 						data[i].ruangId +
 						'"data-nm-ruang="' +
 						data[i].nm_ruang +
+						'"data-nm-pengawas="' +
+						data[i].nm_pengawas +
 						'"data-max-capacity="' +
 						data[i].max +
 						'"><i class="fa fa-edit"></i></a>' +
@@ -94,13 +99,14 @@ $(document).ready(function () {
 
 	$("#inputFormRuangUjian").submit("click", function () {
 		var nmRuangUjian = $("#nmRuangUjian").val();
+		var nmPengawas = $("#nmPengawas").val();
 		var maxCapacity = $("#maxCapacity").val();
 
 		$.ajax({
 			type: "POST",
 			url: "ruang-ujian/create",
 			dataType: "JSON",
-			data: { nm_ruang: nmRuangUjian, max: maxCapacity },
+			data: { nm_ruang: nmRuangUjian, nm_pengawas: nmPengawas, max: maxCapacity },
 			success: function (data) {
 				// location.href="jurusan";
 				$("#nmRuangUjian").val("");
@@ -157,18 +163,20 @@ $(document).ready(function () {
 		$("#editRuangUjianModal").modal("show");
 		$("#idRuangUjianEdit").val($(this).data("idRuang"));
 		$("#nmRuangUjianEdit").val($(this).data("nmRuang"));
+		$("#nmPengawasEdit").val($(this).data("nmPengawas"));
 		$("#maxRuangEdit").val($(this).data("maxCapacity"));
 	});
 
 	$("#editFormRuangUjian").on("submit", function () {
 		var idRuang = $("#idRuangUjianEdit").val();
 		var nmRuangUjian = $("#nmRuangUjianEdit").val();
+		var nmPengawas = $("#nmPengawasEdit").val();
 		var maxCapacity = $("#maxRuangEdit").val();
 		$.ajax({
 			type: "POST",
 			url: "ruang-ujian/update",
 			dataType: "JSON",
-			data: { id_ruang: idRuang, nm_ruang: nmRuangUjian, max: maxCapacity },
+			data: { id_ruang: idRuang, nm_ruang: nmRuangUjian, nm_pengawas:nmPengawas, max: maxCapacity },
 			success: function (data) {
 				$("#editRuangUjianModal").modal("hide");
 				successMsg();

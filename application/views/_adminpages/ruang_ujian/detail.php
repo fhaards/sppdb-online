@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nama Pengawas :</label>
-                    <br>Hermawati
+                    <br><?= $detailRuang['nm_pengawas']; ?>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="pengawasName">
                                     Pengawas : <br>
-                                    Hermawati
+                                    <?= $detailRuang['nm_pengawas']; ?>
                                 </div>
                             </div>
                         </div>

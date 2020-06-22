@@ -27,6 +27,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Ruangan</th>
+                    <th>Pengawas</th>
                     <th>Kapasitas Maksimum</th>
                     <th>Jumlah Peserta</th>
                     <th>Action</th>
